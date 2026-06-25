@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="NexaCore – IT & Digital Marketing solutions that drive growth. SEO, web design, automation and more." />
+  <title>NexaCore | Digital Growth Partners</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+     NAVBAR
+============================================================ -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+        <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
+        <span class="logo-text">Nexa<span class="logo-accent">Core</span></span>
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Solutions</a>
+            <ul class="dropdown-menu dropdown-menu-custom">
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-magnifying-glass me-2"></i>SEO &amp; SEM</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn me-2"></i>Social Media</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-code me-2"></i>Web Development</a></li>
+              <li><a class="dropdown-item" href="#"><i class="fa-solid fa-robot me-2"></i>AI Automation</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-primary-orange btn-sm px-4" href="#pricing">Get Started</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+     HERO CAROUSEL
+============================================================ -->
+  <section id="home">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <!-- Slide 1 -->
+        <div class="carousel-item active hero-slide slide-1">
+          <div class="hero-overlay"></div>
+          <div class="container h-100">
+            <div class="row h-100 align-items-center">
+              <div class="col-lg-7 hero-content">
+                <span class="hero-eyebrow">🚀 Digital Transformation Agency</span>
+                <h1 class="hero-headline">We Build Brands <br><span class="text-orange-gradient">That Dominate</span> Online</h1>
+                <p class="hero-subtext">From SEO to full-stack web apps — NexaCore turns digital noise into measurable revenue for ambitious companies.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                  <a href="#services" class="btn btn-primary-orange btn-lg">Explore Services</a>
+                  <a href="#about" class="btn btn-outline-light btn-lg">Learn More</a>
+                </div>
+                <div class="hero-stats d-flex gap-4 mt-5">
+                  <div><span class="stat-num">450+</span><span class="stat-label">Clients</span></div>
+                  <div class="vr opacity-25"></div>
+                  <div><span class="stat-num">12yr</span><span class="stat-label">Experience</span></div>
+                  <div class="vr opacity-25"></div>
+                  <div><span class="stat-num">98%</span><span class="stat-label">Retention</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item hero-slide slide-2">
+          <div class="hero-overlay"></div>
+          <div class="container h-100">
+            <div class="row h-100 align-items-center">
+              <div class="col-lg-7 hero-content">
+                <span class="hero-eyebrow">🎯 Performance Marketing</span>
+                <h1 class="hero-headline">Turn Clicks Into <br><span class="text-orange-gradient">Customers &amp; Cash</span></h1>
+                <p class="hero-subtext">Data-driven paid campaigns across Google, Meta, and LinkedIn that deliver qualified leads — not vanity metrics.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                  <a href="#pricing" class="btn btn-primary-orange btn-lg">View Packages</a>
+                  <a href="#contact" class="btn btn-outline-light btn-lg">Free Audit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item hero-slide slide-3">
+          <div class="hero-overlay"></div>
+          <div class="container h-100">
+            <div class="row h-100 align-items-center">
+              <div class="col-lg-7 hero-content">
+                <span class="hero-eyebrow">🤖 AI-Powered Automation</span>
+                <h1 class="hero-headline">Automate Growth, <br><span class="text-orange-gradient">Scale Without Limits</span></h1>
+                <p class="hero-subtext">AI-driven content, chatbots, and workflow automation that free your team to focus on what matters most.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                  <a href="#services" class="btn btn-primary-orange btn-lg">See How It Works</a>
+                  <a href="#contact" class="btn btn-outline-light btn-lg">Talk to Us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     SERVICES
+============================================================ -->
+  <section id="services" class="section-pad bg-light-orange-tint">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">What We Do</span>
+        <h2 class="section-title">Services Built to <span class="text-orange">Scale You</span></h2>
+        <p class="section-sub">End-to-end digital solutions tailored for companies that mean business.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Card 1 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="service-card">
+            <div class="service-icon-wrap"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h5>SEO &amp; Content</h5>
+            <p>Rank higher, stay there. Technical audits, link building, and content strategies that compound over time.</p>
+            <a href="#" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card">
+            <div class="service-icon-wrap"><i class="fa-solid fa-globe"></i></div>
+            <h5>Web Design &amp; Dev</h5>
+            <p>Pixel-perfect, conversion-optimised websites and apps built on modern tech stacks that load fast.</p>
+            <a href="#" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-card">
+            <div class="service-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+            <h5>Paid Advertising</h5>
+            <p>Google Ads, Meta Ads, and LinkedIn campaigns managed to maximise ROAS across every funnel stage.</p>
+            <a href="#" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <!-- Card 4 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-card">
+            <div class="service-icon-wrap"><i class="fa-solid fa-robot"></i></div>
+            <h5>AI &amp; Automation</h5>
+            <p>Custom AI chatbots, workflow automation, and data pipelines that cut costs and accelerate delivery.</p>
+            <a href="#" class="service-link">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     ABOUT
+============================================================ -->
+  <section id="about" class="section-pad">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- Image -->
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="about-img-wrap">
+            <div class="about-img-main">
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=700&q=80" alt="Team working" class="img-fluid rounded-3" />
+            </div>
+            <div class="about-badge">
+              <i class="fa-solid fa-trophy"></i>
+              <div>
+                <strong>Top Agency</strong>
+                <small>2022 – 2025</small>
+              </div>
+            </div>
+            <div class="about-floating-card">
+              <span class="floating-num">450<sup>+</sup></span>
+              <span class="floating-label">Happy Clients Worldwide</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="col-lg-6" data-aos="fade-left">
+          <span class="section-eyebrow">Who We Are</span>
+          <h2 class="section-title mb-3">A Team Obsessed With <span class="text-orange">Your Growth</span></h2>
+          <p class="text-muted">NexaCore was founded in 2012 with a single belief: great digital strategy should be accessible to every ambitious company, not just Fortune 500s. We've since grown into a 60-person team spanning strategy, design, engineering, and analytics.</p>
+          <p class="text-muted">We don't just deliver reports — we sit in your corner and fight for results. Every engagement starts with listening, because the best campaigns are built on understanding the business first.</p>
+
+          <ul class="about-checklist">
+            <li><i class="fa-solid fa-circle-check"></i> Transparent reporting — no smoke and mirrors</li>
+            <li><i class="fa-solid fa-circle-check"></i> Dedicated account managers for every client</li>
+            <li><i class="fa-solid fa-circle-check"></i> Monthly strategy reviews baked into every plan</li>
+            <li><i class="fa-solid fa-circle-check"></i> ISO 27001 certified — your data stays safe</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-primary-orange mt-3">Work With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     WHY CHOOSE US
+============================================================ -->
+  <section class="section-pad why-section">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Our Edge</span>
+        <h2 class="section-title text-white">Why 450+ Companies <span class="text-orange">Choose NexaCore</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="0">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <h6>Results-First Culture</h6>
+            <p>We tie our fees to milestones, not hours. If you don't grow, we don't celebrate.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-users-gear"></i></div>
+            <h6>Specialist Teams</h6>
+            <p>No generalists here — each channel is owned by a certified specialist with deep domain expertise.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-gauge-high"></i></div>
+            <h6>Fast Onboarding</h6>
+            <p>Live in 14 days or less. Our sprint onboarding means you see impact before the first invoice lands.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+          <div class="why-card">
+            <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h6>No Lock-In Contracts</h6>
+            <p>Month-to-month engagements that stay because of performance, not legal obligation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PROCESS
+============================================================ -->
+  <section id="process" class="section-pad bg-light-orange-tint">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">How We Work</span>
+        <h2 class="section-title">From Discovery to <span class="text-orange">Delivered Results</span></h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="process-card">
+            <div class="process-step">01</div>
+            <h6>Discover</h6>
+            <p>Deep-dive audit of your current digital presence, competitors, and untapped opportunities.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="process-card">
+            <div class="process-step">02</div>
+            <h6>Strategise</h6>
+            <p>A custom roadmap with clear KPIs, channel priorities, and a 90-day quick-win plan.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="process-card">
+            <div class="process-step">03</div>
+            <h6>Execute</h6>
+            <p>Rapid deployment — content, ads, builds, and automations running within two weeks.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="process-card">
+            <div class="process-step">04</div>
+            <h6>Optimise</h6>
+            <p>Continuous A/B testing and monthly strategy pivots based on real performance data.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     CALL TO ACTION BANNER
+============================================================ -->
+  <section id="contact" class="cta-banner">
+    <div class="cta-overlay"></div>
+    <div class="container text-center position-relative" data-aos="zoom-in">
+      <span class="section-eyebrow text-white-50">Limited Spots This Quarter</span>
+      <h2 class="display-5 fw-bold text-white mb-3">Ready to <span class="text-orange">Supercharge</span> Your Digital Presence?</h2>
+      <p class="lead text-white-75 mb-4">Book a free 30-minute strategy call. No pitch, no fluff — just a clear picture of what's possible.</p>
+      <div class="d-flex justify-content-center flex-wrap gap-3">
+        <a href="tel:+911234567890" class="btn btn-primary-orange btn-lg">
+          <i class="fa-solid fa-phone-volume me-2"></i>+91 123 456 7890
+        </a>
+        <a href="mailto:hello@nexacore.io" class="btn btn-outline-white btn-lg">
+          <i class="fa-solid fa-envelope me-2"></i>hello@nexacore.io
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PRICING
+============================================================ -->
+  <section id="pricing" class="section-pad">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Investment</span>
+        <h2 class="section-title">Transparent Plans, <span class="text-orange">No Surprises</span></h2>
+        <p class="section-sub">Pick a plan. Scale up or down any month. Cancel whenever.</p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Starter -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span class="pricing-tier">Starter</span>
+              <div class="pricing-price"><sup>₹</sup>24,999<span>/mo</span></div>
+              <p>Perfect for startups and local businesses ready to get online and found.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> 5-page website</li>
+              <li><i class="fa-solid fa-check"></i> On-page SEO setup</li>
+              <li><i class="fa-solid fa-check"></i> Google My Business</li>
+              <li><i class="fa-solid fa-check"></i> Monthly report</li>
+              <li class="disabled"><i class="fa-solid fa-xmark"></i> Paid ads management</li>
+              <li class="disabled"><i class="fa-solid fa-xmark"></i> Social media management</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-orange w-100">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Growth (featured) -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="pricing-card pricing-featured">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-header">
+              <span class="pricing-tier">Growth</span>
+              <div class="pricing-price"><sup>₹</sup>59,999<span>/mo</span></div>
+              <p>For SMEs scaling their digital presence across multiple channels.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> 15-page website + CMS</li>
+              <li><i class="fa-solid fa-check"></i> Full SEO + content (8 posts)</li>
+              <li><i class="fa-solid fa-check"></i> Google &amp; Meta Ads</li>
+              <li><i class="fa-solid fa-check"></i> Social media (3 platforms)</li>
+              <li><i class="fa-solid fa-check"></i> Bi-weekly strategy call</li>
+              <li class="disabled"><i class="fa-solid fa-xmark"></i> AI automation</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary-orange w-100">Get Started</a>
+          </div>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <span class="pricing-tier">Enterprise</span>
+              <div class="pricing-price"><sup>₹</sup>1,29,999<span>/mo</span></div>
+              <p>Full-stack digital partner for high-growth companies with complex needs.</p>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fa-solid fa-check"></i> Custom web app / portal</li>
+              <li><i class="fa-solid fa-check"></i> SEO + 20 content pieces</li>
+              <li><i class="fa-solid fa-check"></i> All paid channels</li>
+              <li><i class="fa-solid fa-check"></i> Social + influencer</li>
+              <li><i class="fa-solid fa-check"></i> AI automation suite</li>
+              <li><i class="fa-solid fa-check"></i> Dedicated account team</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline-orange w-100">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+  <section class="section-pad testimonials-section">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Social Proof</span>
+        <h2 class="section-title">Words From <span class="text-orange">Our Clients</span></h2>
+      </div>
+
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000" data-aos="fade-up">
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="row g-4 justify-content-center">
+              <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                  <p>"NexaCore tripled our organic traffic in 6 months. The team is incredibly responsive and actually cares about our numbers."</p>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">AR</div>
+                    <div><strong>Anjali Rao</strong><small>CMO, FreshMart India</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 d-none d-md-block">
+                <div class="testimonial-card">
+                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                  <p>"Best ROI we've seen from any agency. Their paid ads team is on a different level — data-obsessed in the best way."</p>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">RK</div>
+                    <div><strong>Rahul Khanna</strong><small>Founder, UrbanKraft</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 d-none d-lg-block">
+                <div class="testimonial-card">
+                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
+                  <p>"They rebuilt our entire website from scratch and the conversion rate jumped 220% within the first quarter. Unbelievable."</p>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">PM</div>
+                    <div><strong>Priya Mehta</strong><small>Director, LearnSphere</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="row g-4 justify-content-center">
+              <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                  <p>"The AI automation they set up saves us 40 hours a week. It was like hiring 5 extra people for a fraction of the cost."</p>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">SK</div>
+                    <div><strong>Siddharth Kumar</strong><small>CEO, TechNova Labs</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 d-none d-md-block">
+                <div class="testimonial-card">
+                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                  <p>"Professional, fast, and truly strategic. Our social following grew from 2k to 85k in under a year with NexaCore."</p>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">NP</div>
+                    <div><strong>Neha Patel</strong><small>Brand Manager, GlowCo</small></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 d-none d-lg-block">
+                <div class="testimonial-card">
+                  <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                  <p>"No fluff, just results. Their SEO work turned our blog into a lead-gen machine that now brings in 30 qualified leads/month."</p>
+                  <div class="testimonial-author">
+                    <div class="author-avatar">VJ</div>
+                    <div><strong>Vikram Joshi</strong><small>Head of Growth, CloudBase</small></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-indicators testimonial-indicators">
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FOOTER
+============================================================ -->
+  <footer class="main-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row g-5">
+          <!-- Brand -->
+          <div class="col-lg-4">
+            <a class="footer-brand d-flex align-items-center gap-2 mb-3" href="#home">
+              <span class="logo-icon small"><i class="fa-solid fa-bolt"></i></span>
+              <span class="logo-text text-white">Nexa<span class="logo-accent">Core</span></span>
+            </a>
+            <p class="footer-desc">We partner with ambitious companies to unlock their digital potential — from strategy to execution to measurable growth.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-lg-2 col-md-4">
+            <h6 class="footer-heading">Company</h6>
+            <ul class="footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#">Case Studies</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div class="col-lg-2 col-md-4">
+            <h6 class="footer-heading">Services</h6>
+            <ul class="footer-links">
+              <li><a href="#">SEO &amp; Content</a></li>
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">Paid Advertising</a></li>
+              <li><a href="#">Social Media</a></li>
+              <li><a href="#">AI Automation</a></li>
+              <li><a href="#">Analytics</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact + Newsletter -->
+          <div class="col-lg-4 col-md-4">
+            <h6 class="footer-heading">Stay in the Loop</h6>
+            <p class="footer-desc">Monthly insights on digital marketing, no fluff.</p>
+            <div class="newsletter-form mb-4">
+              <input type="email" placeholder="your@email.com" class="form-control" />
+              <button class="btn btn-primary-orange"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+            <ul class="footer-contact">
+              <li><i class="fa-solid fa-location-dot"></i> 14, Malviya Nagar, Jaipur, RJ 302017</li>
+              <li><i class="fa-solid fa-phone"></i> +91 123 456 7890</li>
+              <li><i class="fa-solid fa-envelope"></i> hello@nexacore.io</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p class="mb-0">&copy; 2025 NexaCore Digital. All rights reserved.</p>
+        <div class="d-flex gap-3">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+
+</html>
