@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SLTech Digital Services — Web Development, Social Media, Meta Ads, Video Editing and more. Full-stack digital solutions for ambitious businesses." />
+  <title>Services | SLTech Digital</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Site styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="sidebar.css" />
+
+  <style>
+    /* ============================================================
+       SERVICES PAGE — scoped styles
+    ============================================================ */
+
+    /* ---- Page Hero ---- */
+    .services-hero {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&q=80');
+      background-size: cover;
+      background-position: center 40%;
+      padding-top: 100px;
+    }
+
+    .services-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(10, 10, 10, 0.90) 50%, rgba(255, 107, 0, 0.18) 100%);
+    }
+
+    .services-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 0 60px;
+    }
+
+    .services-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .services-hero p.lead {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1.1rem;
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    /* Breadcrumb */
+    .page-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .page-breadcrumb a {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: .82rem;
+      font-family: var(--font-display);
+      font-weight: 500;
+    }
+
+    .page-breadcrumb a:hover {
+      color: var(--orange);
+    }
+
+    .page-breadcrumb span {
+      color: rgba(255, 255, 255, 0.25);
+      font-size: .82rem;
+    }
+
+    .page-breadcrumb .current {
+      color: var(--orange);
+      font-size: .82rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+
+    /* ---- Service Nav Pills ---- */
+    .service-nav-strip {
+      background: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      position: sticky;
+      top: 64px;
+      z-index: 200;
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .service-nav-inner {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      padding: 12px 0;
+      scrollbar-width: none;
+    }
+
+    .service-nav-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .service-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      border-radius: 50px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: .85rem;
+      color: #555;
+      background: transparent;
+      border: 1.5px solid rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .service-pill i {
+      font-size: .8rem;
+      color: var(--orange);
+    }
+
+    .service-pill:hover,
+    .service-pill.active {
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: var(--shadow-orange);
+    }
+
+    .service-pill:hover i,
+    .service-pill.active i {
+      color: #fff;
+    }
+
+    /* ---- Overview Cards ---- */
+    .overview-section {
+      padding: 80px 0 40px;
+      background: var(--orange-tint);
+    }
+
+    .overview-card {
+      background: #fff;
+      border-radius: var(--radius-card);
+      padding: 32px 26px;
+      height: 100%;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+
+    .overview-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+
+    .overview-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.11);
+      color: inherit;
+    }
+
+    .overview-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .ov-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--orange-tint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--orange);
+      margin-bottom: 18px;
+      transition: var(--transition);
+    }
+
+    .overview-card:hover .ov-icon {
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(255, 107, 0, .3);
+    }
+
+    .overview-card h5 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .overview-card p {
+      font-size: .88rem;
+      color: #666;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .ov-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: .82rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      color: var(--orange);
+    }
+
+    .ov-arrow i {
+      transition: transform .25s ease;
+    }
+
+    .overview-card:hover .ov-arrow i {
+      transform: translateX(4px);
+    }
+
+    /* ---- Service Detail Sections ---- */
+    .svc-detail {
+      padding: 96px 0;
+    }
+
+    .svc-detail.dark-bg {
+      background: var(--dark);
+    }
+
+    .svc-detail.tint-bg {
+      background: var(--orange-tint);
+    }
+
+    /* Feature list */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .9rem;
+      color: #444;
+      line-height: 1.55;
+    }
+
+    .svc-detail.dark-bg .feature-list li {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .feature-list li i {
+      color: var(--orange);
+      font-size: .8rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* Service image frame */
+    .svc-img-frame {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.14);
+    }
+
+    .svc-img-frame img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .svc-img-frame:hover img {
+      transform: scale(1.03);
+    }
+
+    .svc-img-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-size: .82rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-orange);
+    }
+
+    /* Tech tags */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .tech-tag {
+      padding: 5px 14px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(255, 107, 0, 0.25);
+      color: var(--orange);
+      font-size: .78rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+      background: var(--orange-glow);
+    }
+
+    .svc-detail.dark-bg .tech-tag {
+      border-color: rgba(255, 107, 0, 0.3);
+      background: rgba(255, 107, 0, 0.1);
+      color: var(--orange-light);
+    }
+
+    /* Stats row inside service */
+    .svc-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .svc-stat-item {}
+
+    .svc-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      display: block;
+    }
+
+    .svc-detail.dark-bg .svc-stat-num {
+      color: var(--orange-light);
+    }
+
+    .svc-stat-label {
+      font-size: .78rem;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      display: block;
+      margin-top: 3px;
+    }
+
+    .svc-detail.dark-bg .svc-stat-label {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* Section divider dot */
+    .anchor-dot {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background: var(--orange);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(255, 107, 0, 0.15);
+    }
+
+    /* ---- Process Section ---- */
+    .process-section {
+      padding: 96px 0;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 107, 0, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .process-timeline {
+      position: relative;
+    }
+
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--orange), rgba(255, 107, 0, 0.1));
+      transform: translateX(-50%);
+    }
+
+    .pt-item {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      gap: 0;
+      margin-bottom: 48px;
+      align-items: center;
+    }
+
+    .pt-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .pt-content {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-card);
+      padding: 28px 24px;
+      transition: var(--transition);
+    }
+
+    .pt-content:hover {
+      background: rgba(255, 107, 0, 0.06);
+      border-color: rgba(255, 107, 0, 0.2);
+    }
+
+    .pt-content h6 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .pt-content p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: .88rem;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .pt-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      color: #fff;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: .95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      box-shadow: var(--shadow-orange);
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+    }
+
+    .pt-empty {}
+
+    /* Right-aligned items */
+    .pt-item.right .pt-content {
+      grid-column: 3;
+    }
+
+    .pt-item.right .pt-number {
+      grid-column: 2;
+    }
+
+    .pt-item.right .pt-empty {
+      grid-column: 1;
+    }
+
+    .pt-item.left .pt-content {
+      grid-column: 1;
+    }
+
+    .pt-item.left .pt-number {
+      grid-column: 2;
+    }
+
+    .pt-item.left .pt-empty {
+      grid-column: 3;
+    }
+
+    /* ---- FAQ Section ---- */
+    .faq-section {
+      padding: 96px 0;
+      background: var(--orange-tint);
+    }
+
+    .faq-accordion .accordion-item {
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 12px !important;
+      margin-bottom: 10px;
+      overflow: hidden;
+      box-shadow: none;
+    }
+
+    .faq-accordion .accordion-button {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: .95rem;
+      color: #1a1a1a;
+      background: #fff;
+      border-radius: 12px !important;
+      padding: 18px 22px;
+      box-shadow: none !important;
+    }
+
+    .faq-accordion .accordion-button:not(.collapsed) {
+      color: var(--orange);
+      background: #fff;
+    }
+
+    .faq-accordion .accordion-button::after {
+      filter: none;
+    }
+
+    .faq-accordion .accordion-button:not(.collapsed)::after {
+      filter: hue-rotate(20deg) saturate(5) brightness(0.9);
+    }
+
+    .faq-accordion .accordion-body {
+      font-size: .92rem;
+      color: #555;
+      line-height: 1.75;
+      background: #fff;
+      padding: 0 22px 20px;
+    }
+
+    /* ---- CTA Section ---- */
+    .services-cta {
+      background: linear-gradient(135deg, var(--orange-dark), var(--orange), var(--orange-light));
+      padding: 80px 0;
+    }
+
+    .services-cta h2 {
+      color: #fff;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+    }
+
+    .services-cta p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 1.05rem;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--orange);
+      border-radius: var(--radius-btn);
+      font-family: var(--font-display);
+      font-weight: 700;
+      padding: .7rem 1.8rem;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-white:hover {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--orange-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-white-solid {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-btn);
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: .7rem 1.8rem;
+      transition: var(--transition);
+    }
+
+    .btn-outline-white-solid:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* WhatsApp button */
+    .wa-btn {
+      position: fixed;
+      bottom: 84px;
+      right: 28px;
+      width: 52px;
+      height: 52px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+      z-index: 998;
+      transition: var(--transition);
+    }
+
+    .wa-btn:hover {
+      transform: translateY(-3px) scale(1.06);
+      color: #fff;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 991.98px) {
+      .process-timeline::before {
+        display: none;
+      }
+
+      .pt-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .pt-item.right .pt-content,
+      .pt-item.left .pt-content {
+        grid-column: 1;
+      }
+
+      .pt-item.right .pt-number,
+      .pt-item.left .pt-number {
+        grid-column: 1;
+        margin: 0;
+      }
+
+      .pt-empty {
+        display: none;
+      }
+
+      .pt-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .pt-number {
+        margin-bottom: 12px;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .svc-stats {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+     NAVBAR
+============================================================ -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="Logo.png" class="logo" alt="">
+        <span class="logo-text">SL<span class="logo-accent">Tech</span></span>
+      </a>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown">Services</a>
+            <ul class="dropdown-menu dropdown-menu-custom">
+              <li><a class="dropdown-item" href="services.html#web"><i class="fa-solid fa-code me-2"></i>Web Development</a></li>
+              <li><a class="dropdown-item" href="services.html#social"><i class="fa-solid fa-bullhorn me-2"></i>Social Media Handling</a></li>
+              <li><a class="dropdown-item" href="services.html#meta"><i class="fa-solid fa-rectangle-ad me-2"></i>Meta Ads</a></li>
+              <li><a class="dropdown-item" href="services.html#video"><i class="fa fa-video-camera me-2"></i>Video Editing</a></li>
+
+            </ul>
+          </li>
+
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="portfolio.html" role="button" data-bs-toggle="dropdown">Portfolio</a>
+            <ul class="dropdown-menu dropdown-menu-custom">
+              <li><a class="dropdown-item" href="portfolio.html#web"><i class="fa-solid fa-code me-2"></i>Web Development</a></li>
+              <li><a class="dropdown-item" href="portfolio.html#social"><i class="fa-solid fa-bullhorn me-2"></i>Social Media Handling</a></li>
+              <li><a class="dropdown-item" href="portfolio.html#video"><i class="fa fa-video-camera me-2"></i>Video Editing</a></li>
+
+            </ul>
+          </li>
+
+
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-primary-orange btn-sm px-4" href="index.html#pricing">Get Started</a>
+          </li>
+        </ul>
+      </div>
+
+      <button class="navbar-toggler  d-lg-none" type="button" onclick="openSidebar()" aria-label="Open menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar Drawer -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">SL<span>Tech</span></div>
+      <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html"><i class="fa-solid fa-users"></i> About</a>
+      <button class="sidebar-section-toggle" onclick="toggleSub('servicesSub', this)">
+        <i class="fa-solid fa-briefcase"></i> Services
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      </button>
+      <div class="sidebar-submenu" id="servicesSub">
+        <a href="services.html#web"><i class="fa-solid fa-code"></i> Web Development</a>
+        <a href="services.html#social"><i class="fa-solid fa-bullhorn"></i> Social Media</a>
+        <a href="services.html#meta"><i class="fa-solid fa-rectangle-ad"></i> Meta Ads</a>
+        <a href="services.html#video"><i class="fa-solid fa-video"></i> Video Editing</a>
+      </div>
+      <button class="sidebar-section-toggle" onclick="toggleSub('portfolioSub', this)">
+        <i class="fa-solid fa-images"></i> Portfolio
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      </button>
+      <div class="sidebar-submenu" id="portfolioSub">
+        <a href="portfolio.html#web"><i class="fa-solid fa-code"></i> Web Development</a>
+        <a href="portfolio.html#social"><i class="fa-solid fa-bullhorn"></i> Social Media Handling</a>
+        <a href="portfolio.html#video"><i class="fa-solid fa-video"></i> Video Editing</a>
+      </div>
+      <a href="portfolio.htmlpricing.html"><i class="fa-solid fa-tag"></i> Pricing</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a class="sidebar-cta" href="index.html#pricing">🚀 Get Started</a>
+      <div class="sidebar-contact">
+        <a href="tel:+911234567890"><i class="fa-solid fa-phone"></i> +91 123 456 7890</a>
+        <a href="mailto:hello@nexacore.io"><i class="fa-solid fa-envelope"></i> hello@nexacore.io</a>
+        <a href="https://wa.me/911234567890"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+  <!-- ============================================================
+     PAGE HERO
+  ============================================================ -->
+  <section class="services-hero">
+    <div class="services-hero-overlay"></div>
+    <div class="container">
+      <div class="services-hero-content">
+        <div class="page-breadcrumb" data-aos="fade-down">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span class="current">Services</span>
+        </div>
+        <span class="hero-eyebrow" data-aos="fade-up" data-aos-delay="50">What We Do</span>
+        <h1 data-aos="fade-up" data-aos-delay="100">
+          Every Service Built to<br>
+          <span class="text-orange-gradient">Move the Needle</span>
+        </h1>
+        <p class="lead" data-aos="fade-up" data-aos-delay="160">
+          From pixel-perfect websites to performance ad campaigns — every service we offer is designed to compound. We don't deliver outputs, we deliver outcomes.
+        </p>
+        <div class="d-flex gap-3 flex-wrap mt-4" data-aos="fade-up" data-aos-delay="220">
+          <a href="#web" class="btn btn-primary-orange btn-lg">Explore Services</a>
+          <a href="index.html#pricing" class="btn btn-outline-white btn-lg">View Packages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     SERVICE NAV STRIP
+  ============================================================ -->
+  <div class="service-nav-strip">
+    <div class="container">
+      <div class="service-nav-inner">
+        <a href="#web" class="service-pill active">
+          <i class="fa-solid fa-code"></i> Web Development
+        </a>
+        <a href="#social" class="service-pill">
+          <i class="fa-solid fa-bullhorn"></i> Social Media
+        </a>
+        <a href="#meta" class="service-pill">
+          <i class="fa-solid fa-rectangle-ad"></i> Meta Ads
+        </a>
+        <a href="#video" class="service-pill">
+          <i class="fa-solid fa-video"></i> Video Editing
+        </a>
+        <a href="#seo" class="service-pill">
+          <i class="fa-solid fa-magnifying-glass-chart"></i> SEO &amp; Content
+        </a>
+        <a href="#automation" class="service-pill">
+          <i class="fa-solid fa-robot"></i> AI Automation
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+     OVERVIEW CARDS
+  ============================================================ -->
+  <section class="overview-section">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Full Stack Digital</span>
+        <h2 class="section-title">Everything You Need to <span class="text-orange">Grow Online</span></h2>
+        <p class="section-sub">Six specialisations. One team. Zero hand-offs to external freelancers.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <a href="#web" class="overview-card">
+            <div class="ov-icon"><i class="fa-solid fa-code"></i></div>
+            <h5>Web Development</h5>
+            <p>High-performance websites and custom web apps engineered for speed, SEO, and conversion — built on the tech stack that fits your business.</p>
+            <span class="ov-arrow">Explore <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+          <a href="#social" class="overview-card">
+            <div class="ov-icon"><i class="fa-solid fa-bullhorn"></i></div>
+            <h5>Social Media Management</h5>
+            <p>Content calendars, community management, and platform strategy that turns followers into customers — across Instagram, LinkedIn, X, and more.</p>
+            <span class="ov-arrow">Explore <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+          <a href="#meta" class="overview-card">
+            <div class="ov-icon"><i class="fa-solid fa-rectangle-ad"></i></div>
+            <h5>Meta Ads</h5>
+            <p>Facebook and Instagram ad campaigns that reach the right audience at the right moment — creative, targeting, and budget all optimised for ROAS.</p>
+            <span class="ov-arrow">Explore <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <a href="#video" class="overview-card">
+            <div class="ov-icon"><i class="fa-solid fa-video"></i></div>
+            <h5>Video Editing</h5>
+            <p>Professional editing for brand videos, Reels, YouTube content, and ad creatives — motion graphics, colour grading, and subtitle packages included.</p>
+            <span class="ov-arrow">Explore <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+          <a href="#seo" class="overview-card">
+            <div class="ov-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h5>SEO &amp; Content</h5>
+            <p>Technical audits, keyword strategy, link building, and content that climbs — and stays — on the first page without black-hat shortcuts.</p>
+            <span class="ov-arrow">Explore <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+          <a href="#automation" class="overview-card">
+            <div class="ov-icon"><i class="fa-solid fa-robot"></i></div>
+            <h5>AI &amp; Automation</h5>
+            <p>Custom AI chatbots, workflow automation, and intelligent data pipelines that cut operational overhead and free your team for high-value work.</p>
+            <span class="ov-arrow">Explore <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     WEB DEVELOPMENT
+  ============================================================ -->
+  <section id="web" class="svc-detail" style="position:relative;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <span class="section-eyebrow">Web Development</span>
+          <h2 class="section-title mb-3">Websites That <span class="text-orange">Work as Hard</span> as You Do</h2>
+          <p class="text-muted">We don't build brochure sites. Every project starts with conversion goals and business KPIs, then we design and engineer backwards from there. The result is a website that loads fast, ranks on Google, and turns visitors into paying customers.</p>
+
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Custom UI/UX design from scratch</li>
+            <li><i class="fa-solid fa-circle-check"></i> Mobile-first, pixel-perfect build</li>
+            <li><i class="fa-solid fa-circle-check"></i> Core Web Vitals optimised</li>
+            <li><i class="fa-solid fa-circle-check"></i> CMS integration (WordPress, Webflow)</li>
+            <li><i class="fa-solid fa-circle-check"></i> E-commerce &amp; payment gateways</li>
+            <li><i class="fa-solid fa-circle-check"></i> 3-month post-launch support</li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Next.js</span>
+            <span class="tech-tag">WordPress</span>
+            <span class="tech-tag">Webflow</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Shopify</span>
+          </div>
+
+          <div class="svc-stats">
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">150+</span>
+              <span class="svc-stat-label">Sites Launched</span>
+            </div>
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">14 days</span>
+              <span class="svc-stat-label">Avg. Launch Time</span>
+            </div>
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">220%</span>
+              <span class="svc-stat-label">Avg. CR Lift</span>
+            </div>
+          </div>
+
+          <a href="index.html#pricing" class="btn btn-primary-orange mt-4">Get a Web Quote</a>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="svc-img-frame">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80" alt="Web development team" />
+            <div class="svc-img-badge"><i class="fa-solid fa-star me-1"></i> 150+ projects delivered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     SOCIAL MEDIA
+  ============================================================ -->
+  <section id="social" class="svc-detail dark-bg" style="position:relative;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+          <span class="section-eyebrow" style="background:rgba(255,107,0,0.15);color:var(--orange-light);">Social Media</span>
+          <h2 class="section-title text-white mb-3">Grow an Audience That <span class="text-orange">Actually Buys</span></h2>
+          <p style="color:rgba(255,255,255,0.6); line-height:1.75;">Follower counts are vanity. Engagement, DMs, and purchases are reality. We build social strategies around your business objectives — and we manage everything end-to-end so your team never has to think about it.</p>
+
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Monthly content calendar</li>
+            <li><i class="fa-solid fa-circle-check"></i> Creative design &amp; copywriting</li>
+            <li><i class="fa-solid fa-circle-check"></i> Community management &amp; replies</li>
+            <li><i class="fa-solid fa-circle-check"></i> Hashtag &amp; SEO strategy</li>
+            <li><i class="fa-solid fa-circle-check"></i> Instagram Reels &amp; Stories</li>
+            <li><i class="fa-solid fa-circle-check"></i> Monthly performance reports</li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Instagram</span>
+            <span class="tech-tag">LinkedIn</span>
+            <span class="tech-tag">Facebook</span>
+            <span class="tech-tag">X (Twitter)</span>
+            <span class="tech-tag">YouTube</span>
+            <span class="tech-tag">Pinterest</span>
+          </div>
+
+          <div class="svc-stats">
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">85k</span>
+              <span class="svc-stat-label">Followers grown (1 client, 1yr)</span>
+            </div>
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">3×</span>
+              <span class="svc-stat-label">Avg. Engagement Lift</span>
+            </div>
+          </div>
+
+          <a href="index.html#pricing" class="btn btn-primary-orange mt-4">Start Social Package</a>
+        </div>
+
+        <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+          <div class="svc-img-frame">
+            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&q=80" alt="Social media strategy session" />
+            <div class="svc-img-badge"><i class="fa-brands fa-instagram me-1"></i> 3× avg. engagement lift</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     META ADS
+  ============================================================ -->
+  <section id="meta" class="svc-detail tint-bg" style="position:relative;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <span class="section-eyebrow">Meta Ads</span>
+          <h2 class="section-title mb-3">Turn Ad Spend Into <span class="text-orange">Predictable Revenue</span></h2>
+          <p class="text-muted">We are a certified Meta Business Partner. That means priority support, beta feature access, and a team that has managed over ₹20Cr in Meta ad spend — with an average ROAS of 4.8×. Every rupee is tracked, tested, and optimised.</p>
+
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Full funnel campaign architecture</li>
+            <li><i class="fa-solid fa-circle-check"></i> Audience research &amp; lookalikes</li>
+            <li><i class="fa-solid fa-circle-check"></i> Creative strategy &amp; ad copy</li>
+            <li><i class="fa-solid fa-circle-check"></i> A/B split testing</li>
+            <li><i class="fa-solid fa-circle-check"></i> Pixel setup &amp; conversion tracking</li>
+            <li><i class="fa-solid fa-circle-check"></i> Retargeting &amp; dynamic ads</li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Facebook Ads</span>
+            <span class="tech-tag">Instagram Ads</span>
+            <span class="tech-tag">Meta Pixel</span>
+            <span class="tech-tag">Advantage+</span>
+            <span class="tech-tag">Reels Ads</span>
+          </div>
+
+          <div class="svc-stats">
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">₹20Cr+</span>
+              <span class="svc-stat-label">Ad Spend Managed</span>
+            </div>
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">4.8×</span>
+              <span class="svc-stat-label">Average ROAS</span>
+            </div>
+          </div>
+
+          <a href="index.html#pricing" class="btn btn-primary-orange mt-4">Run Meta Ads with Us</a>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="svc-img-frame">
+            <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&q=80" alt="Performance marketing dashboard" />
+            <div class="svc-img-badge"><i class="fa-brands fa-meta me-1"></i> Certified Meta Business Partner</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     VIDEO EDITING
+  ============================================================ -->
+  <section id="video" class="svc-detail dark-bg" style="position:relative;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+          <span class="section-eyebrow" style="background:rgba(255,107,0,0.15);color:var(--orange-light);">Video Editing</span>
+          <h2 class="section-title text-white mb-3">Scroll-Stopping Video That <span class="text-orange">Tells Your Story</span></h2>
+          <p style="color:rgba(255,255,255,0.6); line-height:1.75;">Video is the highest-performing content format across every platform. Our editors turn raw footage into polished brand stories — fast. From Reels and YouTube to full ad creatives, we handle the cut, colour, motion, and captions.</p>
+
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Brand videos &amp; explainers</li>
+            <li><i class="fa-solid fa-circle-check"></i> Short-form Reels &amp; TikToks</li>
+            <li><i class="fa-solid fa-circle-check"></i> YouTube long-form editing</li>
+            <li><i class="fa-solid fa-circle-check"></i> Motion graphics &amp; lower thirds</li>
+            <li><i class="fa-solid fa-circle-check"></i> Professional colour grading</li>
+            <li><i class="fa-solid fa-circle-check"></i> Subtitle &amp; caption packages</li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Premiere Pro</span>
+            <span class="tech-tag">After Effects</span>
+            <span class="tech-tag">DaVinci Resolve</span>
+            <span class="tech-tag">CapCut Pro</span>
+          </div>
+
+          <div class="svc-stats">
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">48 hrs</span>
+              <span class="svc-stat-label">Avg. Turnaround</span>
+            </div>
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">500+</span>
+              <span class="svc-stat-label">Videos Edited</span>
+            </div>
+          </div>
+
+          <a href="index.html#pricing" class="btn btn-primary-orange mt-4">Start a Video Project</a>
+        </div>
+
+        <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+          <div class="svc-img-frame">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80" alt="Video editing workspace" />
+            <div class="svc-img-badge"><i class="fa-solid fa-film me-1"></i> 48-hr turnaround guarantee</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     SEO & CONTENT
+  ============================================================ -->
+  <section id="seo" class="svc-detail" style="position:relative;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <span class="section-eyebrow">SEO &amp; Content</span>
+          <h2 class="section-title mb-3">Rank. Stay. <span class="text-orange">Convert.</span></h2>
+          <p class="text-muted">We treat SEO as a compounding investment, not a one-time fix. Our approach combines technical excellence, authoritative content, and strategic link building to build search visibility that lasts — and generates qualified leads month after month.</p>
+
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Full technical site audit</li>
+            <li><i class="fa-solid fa-circle-check"></i> Keyword research &amp; gap analysis</li>
+            <li><i class="fa-solid fa-circle-check"></i> On-page &amp; schema optimisation</li>
+            <li><i class="fa-solid fa-circle-check"></i> 8–20 content pieces/month</li>
+            <li><i class="fa-solid fa-circle-check"></i> Authority link building</li>
+            <li><i class="fa-solid fa-circle-check"></i> Core Web Vitals fixes</li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag">Ahrefs</span>
+            <span class="tech-tag">SEMrush</span>
+            <span class="tech-tag">Google Search Console</span>
+            <span class="tech-tag">Screaming Frog</span>
+          </div>
+
+          <div class="svc-stats">
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">3×</span>
+              <span class="svc-stat-label">Avg. Organic Traffic Lift</span>
+            </div>
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">6 mo</span>
+              <span class="svc-stat-label">Avg. Time to Rank P1</span>
+            </div>
+          </div>
+
+          <a href="index.html#pricing" class="btn btn-primary-orange mt-4">Start SEO Campaign</a>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <div class="svc-img-frame">
+            <img src="https://images.unsplash.com/photo-1571721795195-a2ca2d3370a9?w=800&q=80" alt="SEO analytics dashboard" />
+            <div class="svc-img-badge"><i class="fa-solid fa-arrow-trend-up me-1"></i> 3× avg. organic traffic lift</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     AI AUTOMATION
+  ============================================================ -->
+  <section id="automation" class="svc-detail tint-bg" style="position:relative;">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+          <span class="section-eyebrow">AI &amp; Automation</span>
+          <h2 class="section-title mb-3">Work Smarter With <span class="text-orange">AI That Ships</span></h2>
+          <p class="text-muted">We've been building automation pipelines since before it was trendy. From AI-powered customer service bots to fully automated marketing workflows, our engineering team builds tools that are genuinely used — and genuinely save you time and money.</p>
+
+          <ul class="feature-list">
+            <li><i class="fa-solid fa-circle-check"></i> Custom AI chatbot development</li>
+            <li><i class="fa-solid fa-circle-check"></i> CRM &amp; email workflow automation</li>
+            <li><i class="fa-solid fa-circle-check"></i> Data pipeline engineering</li>
+            <li><i class="fa-solid fa-circle-check"></i> AI content generation systems</li>
+            <li><i class="fa-solid fa-circle-check"></i> Lead scoring &amp; nurture flows</li>
+            <li><i class="fa-solid fa-circle-check"></i> API integrations &amp; webhooks</li>
+          </ul>
+
+          <div class="tech-tags">
+            <span class="tech-tag">OpenAI</span>
+            <span class="tech-tag">n8n</span>
+            <span class="tech-tag">Make.com</span>
+            <span class="tech-tag">Zapier</span>
+            <span class="tech-tag">HubSpot</span>
+            <span class="tech-tag">Python</span>
+          </div>
+
+          <div class="svc-stats">
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">40 hrs/wk</span>
+              <span class="svc-stat-label">Avg. Time Saved (per client)</span>
+            </div>
+            <div class="svc-stat-item">
+              <span class="svc-stat-num">35%</span>
+              <span class="svc-stat-label">Avg. Overhead Reduction</span>
+            </div>
+          </div>
+
+          <a href="index.html#pricing" class="btn btn-primary-orange mt-4">Automate Your Business</a>
+        </div>
+
+        <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+          <div class="svc-img-frame">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80" alt="AI automation interface" />
+            <div class="svc-img-badge"><i class="fa-solid fa-robot me-1"></i> 40 hrs/week saved on average</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     HOW WE WORK — PROCESS
+  ============================================================ -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow" style="background:rgba(255,107,0,0.15);color:var(--orange-light);">How It Works</span>
+        <h2 class="section-title text-white">From First Call to <span class="text-orange">Live Results</span></h2>
+        <p class="section-sub" style="color:rgba(255,255,255,0.5);">A consistent, transparent workflow across every service we deliver.</p>
+      </div>
+
+      <div class="process-timeline" data-aos="fade-up" data-aos-delay="80">
+
+        <div class="pt-item left">
+          <div class="pt-content">
+            <h6>Discovery Call</h6>
+            <p>A 30-minute conversation where we understand your goals, current state, budget, and timeline. No pitch — just listening and honest assessment.</p>
+          </div>
+          <div class="pt-number">01</div>
+          <div class="pt-empty"></div>
+        </div>
+
+        <div class="pt-item right">
+          <div class="pt-empty"></div>
+          <div class="pt-number">02</div>
+          <div class="pt-content">
+            <h6>Audit &amp; Strategy</h6>
+            <p>We audit your current digital presence and present a custom roadmap with clear KPIs, channel priorities, and a 90-day quick-win plan within 5 business days.</p>
+          </div>
+        </div>
+
+        <div class="pt-item left">
+          <div class="pt-content">
+            <h6>Onboarding &amp; Kickoff</h6>
+            <p>You meet your dedicated account manager, we collect access and assets, and align on communication cadence. You're live in the client portal same day.</p>
+          </div>
+          <div class="pt-number">03</div>
+          <div class="pt-empty"></div>
+        </div>
+
+        <div class="pt-item right">
+          <div class="pt-empty"></div>
+          <div class="pt-number">04</div>
+          <div class="pt-content">
+            <h6>Execution Sprint</h6>
+            <p>We deliver the first tangible output within 14 days — a live page, a running campaign, a published content piece. Impact before your second invoice.</p>
+          </div>
+        </div>
+
+        <div class="pt-item left">
+          <div class="pt-content">
+            <h6>Optimise &amp; Report</h6>
+            <p>Monthly strategy reviews, real-time dashboard access, and continuous A/B testing. We tell you what's working and what we're changing — and why.</p>
+          </div>
+          <div class="pt-number">05</div>
+          <div class="pt-empty"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FAQ
+  ============================================================ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-4" data-aos="fade-right">
+          <span class="section-eyebrow">FAQ</span>
+          <h2 class="section-title mb-3">Questions We <span class="text-orange">Get Asked</span> a Lot</h2>
+          <p class="text-muted">Can't find your answer here? Drop us a message — we reply within one business hour during working days.</p>
+          <a href="mailto:hello@nexacore.io" class="btn btn-outline-orange mt-3">
+            <i class="fa-solid fa-envelope me-2"></i>Ask Us Anything
+          </a>
+        </div>
+
+        <div class="col-lg-8" data-aos="fade-left">
+          <div class="accordion faq-accordion" id="faqAccordion">
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  Do you work with businesses outside Jaipur?
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Absolutely. While we're based in Jaipur, our clients are spread across India, the UK, the UAE, and Southeast Asia. We work async-first with clear reporting so timezone rarely matters. Most client relationships are entirely remote.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  How long does it take to see results?
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  It depends on the service. Paid ads (Meta, Google) typically show meaningful ROAS data within 30–45 days. SEO is a 3–6 month compounding investment. Web projects go live within 14–30 days depending on scope. We set honest expectations upfront — no vanity forecasts.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  Can I combine multiple services into one retainer?
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes — our Growth and Enterprise packages bundle services together and our account managers coordinate across disciplines. Bundling typically offers 15–25% cost savings vs. booking each service separately, and the strategy benefits from all channels working in sync.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  Are there lock-in contracts?
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  No. All retainers are month-to-month with 30 days notice to exit. One-off projects (web builds, video edits) have a fixed-scope agreement and no ongoing commitment. We believe our work should speak for itself — not legal obligation.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                  How do you handle reporting and communication?
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Every client gets a real-time dashboard (Looker Studio) with live campaign data, a dedicated account manager reachable on WhatsApp/Slack, and a formal monthly report with analysis and next-month priorities. We believe radical transparency keeps everyone honest — including us.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                  What is your minimum engagement budget for Meta Ads?
+                </button>
+              </h2>
+              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We recommend a minimum monthly ad spend of ₹30,000 to generate statistically meaningful data. Below that threshold, the learning phase takes too long and we can't optimise effectively. Our management fee is separate and starts at ₹15,000/month for ad accounts up to ₹1L spend.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     CTA
+  ============================================================ -->
+  <section class="services-cta">
+    <div class="container text-center" data-aos="zoom-in">
+      <span class="section-eyebrow" style="background:rgba(255,255,255,0.15);color:#fff;">Ready to Start?</span>
+      <h2 class="mt-3 mb-3">Pick a Service. <br>We'll Handle the Rest.</h2>
+      <p class="mb-4">Book a free 30-minute strategy call — we'll map out exactly what you need and what it'll cost. No obligation, no pushy sales.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="tel:+911234567890" class="btn btn-white btn-lg">
+          <i class="fa-solid fa-phone me-2"></i>Call Us Now
+        </a>
+        <a href="mailto:hello@nexacore.io" class="btn btn-outline-white-solid btn-lg">
+          <i class="fa-solid fa-envelope me-2"></i>Send a Message
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WhatsApp Float Button -->
+  <a class="wa-btn" href="https://wa.me/+919530377466" target="_blank" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- ============================================================
+     FOOTER
+  ============================================================ -->
+  <footer class="main-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <a class="footer-brand d-flex align-items-center gap-2 mb-3" href="index.html">
+              <span class="logo-icon small"><i class="fa-solid fa-bolt"></i></span>
+              <span class="logo-text text-white">SL<span class="logo-accent">Tech</span></span>
+            </a>
+            <p class="footer-desc">We partner with ambitious companies to unlock their digital potential — from strategy to execution to measurable growth.</p>
+            <div class="social-icons">
+              <!-- <a href="#"><i class="fa-brands fa-linkedin-in"></i></a> -->
+              <!-- <a href="#"><i class="fa-brands fa-x-twitter"></i></a> -->
+              <a href="https://www.instagram.com/sl_tech__?igsh=MWkwZnVoY3MxZXZxaA=="><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-google"></i></a>
+              <!-- <a href="#"><i class="fa-brands fa-facebook-f"></i></a> -->
+              <!-- <a href="#"><i class="fa-brands fa-youtube"></i></a> -->
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4">
+            <h6 class="footer-heading">Company</h6>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4">
+            <h6 class="footer-heading">Services</h6>
+            <ul class="footer-links">
+              <li><a href="services.html#web">Web Development</a></li>
+              <li><a href="services.html#meta">Meta Ads</a></li>
+              <li><a href="services.html#social">Social Media</a></li>
+              <li><a href="services.html#video">Video Editing</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-4">
+            <h6 class="footer-heading">Stay in the Loop</h6>
+            <p class="footer-desc">Monthly insights on digital marketing, no fluff.</p>
+
+            <ul class="footer-contact">
+              <li><i class="fa-solid fa-location-dot"></i>Manikya Nagar, Bhilwara, RJ 311001</li>
+              <li><i class="fa-solid fa-phone"></i>+919530377466</li>
+              <li><i class="fa-solid fa-envelope"></i> hello@sltech.io</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p class="mb-0">&copy; 2025 SLTech Digital. All rights reserved.</p>
+        <div class="d-flex gap-3">
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script>
+    // AOS init
+    AOS.init({
+      duration: 700,
+      once: true,
+      offset: 60
+    });
+
+    // Navbar scroll
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Back to top
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+    btn.addEventListener('click', () => window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    }));
+
+    // Service nav pill active state on scroll
+    const sections = ['web', 'social', 'meta', 'video', 'seo', 'automation'];
+    const pills = document.querySelectorAll('.service-pill');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && window.scrollY >= el.offsetTop - 140) current = id;
+      });
+      pills.forEach(p => {
+        p.classList.remove('active');
+        if (p.getAttribute('href') === '#' + current) p.classList.add('active');
+      });
+    });
+
+    // Sidebar
+    function openSidebar() {
+      document.getElementById('sidebar').classList.add('open');
+      document.getElementById('sidebarOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebarOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function toggleSub(id, btn) {
+      const sub = document.getElementById(id);
+      const isOpen = sub.classList.contains('open');
+      document.querySelectorAll('.sidebar-submenu.open').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('.sidebar-section-toggle.expanded').forEach(el => el.classList.remove('expanded'));
+      if (!isOpen) {
+        sub.classList.add('open');
+        btn.classList.add('expanded');
+      }
+    }
+
+    document.querySelectorAll('.sidebar-nav a, .sidebar-submenu a').forEach(link => {
+      link.addEventListener('click', closeSidebar);
+    });
+  </script>
+</body>
+
+</html>

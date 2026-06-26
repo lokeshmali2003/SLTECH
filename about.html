@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About SLTech — who we are, our story, our team, and the values that drive everything we do." />
+  <title>About Us | SLTech Digital</title>
+
+  <!-- Bootstrap 5 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Site styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="sidebar.css" />
+
+  <style>
+    /* ============================================================
+       ABOUT PAGE — scoped styles
+    ============================================================ */
+
+    /* ---- Page Hero ---- */
+    .about-hero {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80');
+      background-size: cover;
+      background-position: center 30%;
+      padding-top: 100px;
+    }
+
+    .about-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(10, 10, 10, 0.88) 50%, rgba(255, 107, 0, 0.15) 100%);
+    }
+
+    .about-hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 80px 0 60px;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      color: #fff;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .about-hero p.lead {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 1.1rem;
+      max-width: 540px;
+      line-height: 1.75;
+    }
+
+    /* Breadcrumb */
+    .page-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .page-breadcrumb a {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: .82rem;
+      font-family: var(--font-display);
+      font-weight: 500;
+    }
+
+    .page-breadcrumb a:hover {
+      color: var(--orange);
+    }
+
+    .page-breadcrumb span {
+      color: rgba(255, 255, 255, 0.25);
+      font-size: .82rem;
+    }
+
+    .page-breadcrumb .current {
+      color: var(--orange);
+      font-size: .82rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+
+    /* ---- Stats Strip ---- */
+    .stats-strip {
+      background: var(--dark);
+      padding: 0;
+      position: relative;
+      z-index: 5;
+    }
+
+    .stats-strip-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 3px solid var(--orange);
+    }
+
+    .stat-block {
+      padding: 36px 28px;
+      text-align: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      transition: background var(--transition);
+    }
+
+    .stat-block:last-child {
+      border-right: none;
+    }
+
+    .stat-block:hover {
+      background: rgba(255, 107, 0, 0.06);
+    }
+
+    .stat-block .big-num {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--orange-light);
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-block .big-label {
+      color: rgba(255, 255, 255, 0.45);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ---- Our Story ---- */
+    .story-section {
+      padding: 96px 0;
+    }
+
+    .story-timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .story-timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--orange), rgba(255, 107, 0, 0.1));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 40px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--orange);
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.25);
+      flex-shrink: 0;
+    }
+
+    .timeline-year {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--orange);
+      background: var(--orange-glow);
+      padding: 3px 10px;
+      border-radius: 50px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-item h5 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #1a1a1a;
+    }
+
+    .timeline-item p {
+      font-size: .9rem;
+      color: #666;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Story image collage */
+    .story-collage {
+      position: relative;
+      height: 480px;
+    }
+
+    .collage-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 68%;
+      height: 75%;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .collage-secondary {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 52%;
+      height: 50%;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.15);
+      border: 4px solid #fff;
+    }
+
+    .collage-badge {
+      position: absolute;
+      top: 50%;
+      right: 4%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, var(--orange), var(--orange-light));
+      color: #fff;
+      padding: 16px 20px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: var(--shadow-orange);
+      font-family: var(--font-display);
+      z-index: 2;
+    }
+
+    .collage-badge .badge-num {
+      font-size: 1.8rem;
+      font-weight: 800;
+      display: block;
+      line-height: 1;
+    }
+
+    .collage-badge .badge-label {
+      font-size: .72rem;
+      opacity: .85;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ---- Mission / Vision / Values ---- */
+    .mvv-section {
+      background: var(--dark);
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mvv-section::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: -120px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(255, 107, 0, 0.09) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .mvv-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-card);
+      padding: 36px 30px;
+      height: 100%;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mvv-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--orange), var(--orange-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s ease;
+    }
+
+    .mvv-card:hover {
+      background: rgba(255, 107, 0, 0.06);
+      border-color: rgba(255, 107, 0, 0.2);
+      transform: translateY(-6px);
+    }
+
+    .mvv-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .mvv-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: rgba(255, 107, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--orange-light);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .mvv-card:hover .mvv-icon {
+      background: var(--orange);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(255, 107, 0, 0.35);
+    }
+
+    .mvv-card h5 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .mvv-card p {
+      color: rgba(255, 255, 255, 0.52);
+      font-size: .9rem;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ---- Values List ---- */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .value-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 10px;
+      padding: 12px 16px;
+      transition: var(--transition);
+    }
+
+    .value-pill:hover {
+      background: rgba(255, 107, 0, 0.08);
+      border-color: rgba(255, 107, 0, 0.25);
+    }
+
+    .value-pill i {
+      color: var(--orange);
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+
+    .value-pill span {
+      color: rgba(255, 255, 255, 0.75);
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: .88rem;
+    }
+
+    /* ---- Team Section ---- */
+    .team-section {
+      padding: 96px 0;
+      background: var(--orange-tint);
+    }
+
+    .team-card {
+      background: #fff;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.13);
+    }
+
+    .team-img-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .team-img-wrap img {
+      width: 100%;
+      aspect-ratio: 4/4;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .team-card:hover .team-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .team-socials {
+      position: absolute;
+      bottom: -52px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.85), transparent);
+      transition: bottom .3s ease;
+    }
+
+    .team-card:hover .team-socials {
+      bottom: 0;
+    }
+
+    .team-socials a {
+      width: 34px;
+      height: 34px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: .8rem;
+      transition: var(--transition);
+    }
+
+    .team-socials a:hover {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+
+    .team-info {
+      padding: 22px 20px;
+    }
+
+    .team-info h6 {
+      font-size: 1rem;
+      margin-bottom: 3px;
+      color: #1a1a1a;
+    }
+
+    .team-role {
+      font-size: .82rem;
+      color: var(--orange);
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+
+    .team-bio {
+      font-size: .85rem;
+      color: #777;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    /* ---- Culture / Life at SLTech ---- */
+    .culture-section {
+      padding: 96px 0;
+    }
+
+    .culture-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+
+    .culture-item {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .culture-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+
+    .culture-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .culture-item.large {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+
+    .culture-item.tall {
+      grid-row: span 2;
+      aspect-ratio: 3/4;
+    }
+
+    .culture-item.small {
+      aspect-ratio: 4/3;
+    }
+
+    .culture-label {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* ---- Awards / Recognition ---- */
+    .awards-section {
+      background: var(--dark);
+      padding: 72px 0;
+    }
+
+    .awards-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .award-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 14px;
+      padding: 18px 24px;
+      transition: var(--transition);
+      min-width: 200px;
+    }
+
+    .award-badge-item:hover {
+      background: rgba(255, 107, 0, 0.07);
+      border-color: rgba(255, 107, 0, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .award-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(255, 107, 0, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange-light);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .award-info strong {
+      display: block;
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .award-info small {
+      color: rgba(255, 255, 255, 0.4);
+      font-size: .78rem;
+    }
+
+    /* ---- CTA strip ---- */
+    .about-cta {
+      background: linear-gradient(135deg, var(--orange-dark), var(--orange), var(--orange-light));
+      padding: 80px 0;
+    }
+
+    .about-cta h2 {
+      color: #fff;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+    }
+
+    .about-cta p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.05rem;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--orange);
+      border-radius: var(--radius-btn);
+      font-family: var(--font-display);
+      font-weight: 700;
+      padding: .7rem 1.8rem;
+      transition: var(--transition);
+      border: none;
+    }
+
+    .btn-white:hover {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--orange-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-white-solid {
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.6);
+      border-radius: var(--radius-btn);
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: .7rem 1.8rem;
+      transition: var(--transition);
+    }
+
+    .btn-outline-white-solid:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-color: #fff;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 991.98px) {
+      .stats-strip-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat-block:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat-block:nth-child(3) {
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .stat-block:nth-child(3),
+      .stat-block:nth-child(4) {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .story-collage {
+        height: 340px;
+      }
+
+      .culture-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .culture-item.large {
+        grid-column: span 2;
+      }
+
+      .culture-item.tall {
+        grid-row: span 1;
+        aspect-ratio: 4/3;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .stats-strip-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .story-collage {
+        height: 260px;
+      }
+
+      .collage-badge {
+        display: none;
+      }
+
+      .culture-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .culture-item.large,
+      .culture-item.tall {
+        grid-column: span 1;
+        aspect-ratio: 16/9;
+        grid-row: span 1;
+      }
+
+      .awards-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .award-badge-item {
+        min-width: unset;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+     NAVBAR
+============================================================ -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="Logo.png" class="logo" alt="">
+        <span class="logo-text">SL<span class="logo-accent">Tech</span></span>
+      </a>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown">Services</a>
+            <ul class="dropdown-menu dropdown-menu-custom">
+              <li><a class="dropdown-item" href="services.html#web"><i class="fa-solid fa-code me-2"></i>Web Development</a></li>
+              <li><a class="dropdown-item" href="services.html#social"><i class="fa-solid fa-bullhorn me-2"></i>Social Media Handling</a></li>
+              <li><a class="dropdown-item" href="services.html#meta"><i class="fa-solid fa-rectangle-ad me-2"></i>Meta Ads</a></li>
+              <li><a class="dropdown-item" href="services.html#video"><i class="fa fa-video-camera me-2"></i>Video Editing</a></li>
+
+            </ul>
+          </li>
+
+
+          <!-- Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="portfolio.html" role="button" data-bs-toggle="dropdown">Portfolio</a>
+            <ul class="dropdown-menu dropdown-menu-custom">
+              <li><a class="dropdown-item" href="portfolio.html#web"><i class="fa-solid fa-code me-2"></i>Web Development</a></li>
+              <li><a class="dropdown-item" href="portfolio.html#social"><i class="fa-solid fa-bullhorn me-2"></i>Social Media Handling</a></li>
+              <li><a class="dropdown-item" href="portfolio.html#video"><i class="fa fa-video-camera me-2"></i>Video Editing</a></li>
+
+            </ul>
+          </li>
+
+
+          <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-primary-orange btn-sm px-4" href="index.html#pricing">Get Started</a>
+          </li>
+        </ul>
+      </div>
+
+      <button class="navbar-toggler  d-lg-none" type="button" onclick="openSidebar()" aria-label="Open menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <!-- Sidebar Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+  <!-- Sidebar Drawer -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">SL<span>Tech</span></div>
+      <button class="sidebar-close" onclick="closeSidebar()">✕</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html"><i class="fa-solid fa-users"></i> About</a>
+      <button class="sidebar-section-toggle" onclick="toggleSub('servicesSub', this)">
+        <i class="fa-solid fa-briefcase"></i> Services
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      </button>
+      <div class="sidebar-submenu" id="servicesSub">
+        <a href="services.html#web"><i class="fa-solid fa-code"></i> Web Development</a>
+        <a href="services.html#social"><i class="fa-solid fa-bullhorn"></i> Social Media</a>
+        <a href="services.html#meta"><i class="fa-solid fa-rectangle-ad"></i> Meta Ads</a>
+        <a href="services.html#video"><i class="fa-solid fa-video"></i> Video Editing</a>
+      </div>
+      <button class="sidebar-section-toggle" onclick="toggleSub('portfolioSub', this)">
+        <i class="fa-solid fa-images"></i> Portfolio
+        <i class="fa-solid fa-chevron-down chevron"></i>
+      </button>
+      <div class="sidebar-submenu" id="portfolioSub">
+        <a href="portfolio.html#web"><i class="fa-solid fa-code"></i> Web Development</a>
+        <a href="portfolio.html#social"><i class="fa-solid fa-bullhorn"></i> Social Media Handling</a>
+        <a href="portfolio.html#video"><i class="fa-solid fa-video"></i> Video Editing</a>
+      </div>
+      <a href="portfolio.htmlpricing.html"><i class="fa-solid fa-tag"></i> Pricing</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a class="sidebar-cta" href="#pricing">🚀 Get Started</a>
+      <div class="sidebar-contact">
+        <a href="tel:+911234567890"><i class="fa-solid fa-phone"></i> +91 123 456 7890</a>
+        <a href="mailto:hello@nexacore.io"><i class="fa-solid fa-envelope"></i> hello@nexacore.io</a>
+        <a href="https://wa.me/911234567890"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+     PAGE HERO
+  ============================================================ -->
+  <section class="about-hero">
+    <div class="about-hero-overlay"></div>
+    <div class="container">
+      <div class="about-hero-content">
+        <div class="page-breadcrumb" data-aos="fade-down">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span class="current">About Us</span>
+        </div>
+        <span class="hero-eyebrow" data-aos="fade-up" data-aos-delay="50">Our Story</span>
+        <h1 data-aos="fade-up" data-aos-delay="100">
+          Built by Builders,<br>
+          <span class="text-orange-gradient">Driven by Results</span>
+        </h1>
+        <p class="lead" data-aos="fade-up" data-aos-delay="160">
+          We're a 60-person digital agency based in Jaipur, obsessed with turning ambitious ideas into measurable online growth — for companies that refuse to settle.
+        </p>
+        <div class="d-flex gap-3 flex-wrap mt-4" data-aos="fade-up" data-aos-delay="220">
+          <a href="#story" class="btn btn-primary-orange btn-lg">Our Story</a>
+          <a href="#team" class="btn btn-outline-white btn-lg">Meet the Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     STATS STRIP
+  ============================================================ -->
+  <div class="stats-strip">
+    <div class="container-fluid px-0">
+      <div class="stats-strip-inner">
+        <div class="stat-block" data-aos="fade-up" data-aos-delay="0">
+          <span class="big-num">450<sup style="font-size:1.4rem; color: var(--orange);">+</sup></span>
+          <span class="big-label">Clients Served</span>
+        </div>
+        <div class="stat-block" data-aos="fade-up" data-aos-delay="80">
+          <span class="big-num">13yr</span>
+          <span class="big-label">In Business</span>
+        </div>
+        <div class="stat-block" data-aos="fade-up" data-aos-delay="160">
+          <span class="big-num">60<sup style="font-size:1.4rem; color: var(--orange);">+</sup></span>
+          <span class="big-label">Team Members</span>
+        </div>
+        <div class="stat-block" data-aos="fade-up" data-aos-delay="240">
+          <span class="big-num">98%</span>
+          <span class="big-label">Client Retention</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+     OUR STORY
+  ============================================================ -->
+  <section id="story" class="story-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <!-- Image collage -->
+        <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+          <div class="story-collage">
+            <img class="collage-main" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80" alt="Team brainstorming" />
+            <img class="collage-secondary" src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&q=80" alt="Strategy session" />
+            <div class="collage-badge">
+              <span class="badge-num">2012</span>
+              <span class="badge-label">Founded in<br>Jaipur</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="col-lg-6 order-lg-1" data-aos="fade-right">
+          <span class="section-eyebrow">How We Got Here</span>
+          <h2 class="section-title mb-4">A Decade of Doing <span class="text-orange">Things Differently</span></h2>
+
+          <div class="story-timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">2012</span>
+              <h5>Started with three people and a shared screen</h5>
+              <p>Our co-founders — a developer, a designer, and a strategist — set up shop in a small Malviya Nagar office with one belief: digital strategy should be honest, accountable, and actually work.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">2016</span>
+              <h5>Expanded into performance marketing</h5>
+              <p>As paid channels matured, we built a dedicated ads team that treated every rupee of client budget like their own — and the ROAS numbers started turning heads.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">2020</span>
+              <h5>Pivoted early on AI-powered workflows</h5>
+              <p>Before it was a buzzword, we were building automation pipelines that cut clients' operational overhead by 30–40%. That early bet defined our next chapter.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">Today</span>
+              <h5>60 specialists, one obsession: your growth</h5>
+              <p>From Jaipur to clients across India, the UK, and Southeast Asia — we've stayed independent, stayed honest, and kept our eye on the metric that matters: your bottom line.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     MISSION / VISION / VALUES
+  ============================================================ -->
+  <section class="mvv-section">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <!-- Cards -->
+        <div class="col-lg-7">
+          <div class="section-header mb-5" data-aos="fade-up">
+            <span class="section-eyebrow">What Drives Us</span>
+            <h2 class="section-title text-white">Mission, Vision <span class="text-orange">&amp; Values</span></h2>
+          </div>
+          <div class="row g-4">
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="0">
+              <div class="mvv-card">
+                <div class="mvv-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                <h5>Our Mission</h5>
+                <p>To make world-class digital strategy accessible to every ambitious company — not just the ones with Fortune 500 budgets. We ship work that compounds.</p>
+              </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="mvv-card">
+                <div class="mvv-icon"><i class="fa-solid fa-binoculars"></i></div>
+                <h5>Our Vision</h5>
+                <p>A world where every growing business has a digital partner that tells the truth, moves fast, and cares more about their results than their own retainer.</p>
+              </div>
+            </div>
+            <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+              <div class="mvv-card">
+                <div class="mvv-icon"><i class="fa-solid fa-gem"></i></div>
+                <h5>Our Values</h5>
+                <p>Six principles that govern every decision we make — from how we hire to how we handle a campaign that isn't hitting targets.</p>
+                <div class="values-grid mt-3">
+                  <div class="value-pill"><i class="fa-solid fa-circle-check"></i><span>Radical transparency</span></div>
+                  <div class="value-pill"><i class="fa-solid fa-circle-check"></i><span>Results over reports</span></div>
+                  <div class="value-pill"><i class="fa-solid fa-circle-check"></i><span>Speed with intention</span></div>
+                  <div class="value-pill"><i class="fa-solid fa-circle-check"></i><span>Continuous learning</span></div>
+                  <div class="value-pill"><i class="fa-solid fa-circle-check"></i><span>Client-first always</span></div>
+                  <div class="value-pill"><i class="fa-solid fa-circle-check"></i><span>Own your mistakes</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side pull-quote -->
+        <div class="col-lg-5" data-aos="fade-left">
+          <div style="border-left: 4px solid var(--orange); padding-left: 28px;">
+            <p style="font-size: 1.5rem; font-weight: 700; color: #fff; line-height: 1.45; font-family: var(--font-display);">
+              "We don't celebrate when we hit our targets. We celebrate when our clients hit theirs."
+            </p>
+            <div class="d-flex align-items-center gap-12 mt-4" style="gap: 12px;">
+              <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-light));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-family:var(--font-display);font-size:.85rem;flex-shrink:0;">SK</div>
+              <div>
+                <strong style="color:#fff;font-family:var(--font-display);font-size:.95rem;">Sandeep Kumar</strong>
+                <small style="display:block;color:rgba(255,255,255,0.4);font-size:.8rem;">Co-founder &amp; CEO</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-5" style="background:rgba(255,107,0,0.08);border:1px solid rgba(255,107,0,0.2);border-radius:var(--radius-card);padding:28px 24px;">
+            <h6 style="color:#fff;font-family:var(--font-display);margin-bottom:16px;">Certifications &amp; Standards</h6>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+              <li style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.6);font-size:.88rem;">
+                <i class="fa-solid fa-shield-halved" style="color:var(--orange);width:16px;"></i> ISO 27001 Information Security Certified
+              </li>
+              <li style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.6);font-size:.88rem;">
+                <i class="fa-brands fa-google" style="color:var(--orange);width:16px;"></i> Google Premier Partner
+              </li>
+              <li style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.6);font-size:.88rem;">
+                <i class="fa-brands fa-meta" style="color:var(--orange);width:16px;"></i> Meta Business Partner
+              </li>
+              <li style="display:flex;align-items:center;gap:10px;color:rgba(255,255,255,0.6);font-size:.88rem;">
+                <i class="fa-solid fa-award" style="color:var(--orange);width:16px;"></i> HubSpot Diamond Agency Partner
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     TEAM
+  ============================================================ -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">The People</span>
+        <h2 class="section-title">Leadership That <span class="text-orange">Leads by Example</span></h2>
+        <p class="section-sub">Strategy, design, and engineering leads who have been in the trenches — and still are.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Member 1 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="0">
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&q=80" alt="Sandeep Kumar" />
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h6>Sandeep Kumar</h6>
+              <span class="team-role">Co-founder &amp; CEO</span>
+              <p class="team-bio">13 years driving digital strategy for brands across India and Southeast Asia.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="80">
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&q=80" alt="Priya Sharma" />
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h6>Priya Sharma</h6>
+              <span class="team-role">Co-founder &amp; CTO</span>
+              <p class="team-bio">Full-stack architect who built our AI automation suite from the ground up.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="160">
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&q=80" alt="Rahul Mehta" />
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h6>Rahul Mehta</h6>
+              <span class="team-role">Head of Performance</span>
+              <p class="team-bio">Managed ₹20Cr+ in ad spend with an average ROAS of 4.8× across verticals.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="240">
+          <div class="team-card">
+            <div class="team-img-wrap">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&q=80" alt="Anjali Verma" />
+              <div class="team-socials">
+                <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+              </div>
+            </div>
+            <div class="team-info">
+              <h6>Anjali Verma</h6>
+              <span class="team-role">Creative Director</span>
+              <p class="team-bio">Award-winning designer who has shaped visual identities for 80+ brands.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hiring CTA -->
+      <div class="text-center mt-5" data-aos="fade-up">
+        <p class="text-muted mb-3">We're a team of 60 — and always looking for exceptional people.</p>
+        <a href="mailto:careers@nexacore.io" class="btn btn-outline-orange">
+          <i class="fa-solid fa-briefcase me-2"></i>View Open Roles
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     LIFE AT SLTECH
+  ============================================================ -->
+  <section class="culture-section">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Culture</span>
+        <h2 class="section-title">Life at <span class="text-orange">SLTech</span></h2>
+        <p class="section-sub">We work hard, learn constantly, and make space to actually enjoy what we do.</p>
+      </div>
+
+      <div class="culture-grid" data-aos="fade-up" data-aos-delay="100">
+        <div class="culture-item large">
+          <img src="https://images.unsplash.com/photo-1517502884422-41eaead166d4?w=900&q=80" alt="Team offsite" />
+          <span class="culture-label">📍 Annual Team Offsite</span>
+        </div>
+        <div class="culture-item tall">
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80" alt="Deep work" />
+          <span class="culture-label">💡 Deep Work Culture</span>
+        </div>
+        <div class="culture-item small">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="Learning sessions" />
+          <span class="culture-label">📚 Weekly Learning Hours</span>
+        </div>
+        <div class="culture-item small">
+          <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&q=80" alt="Collaboration" />
+          <span class="culture-label">🤝 Cross-Team Collab</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     AWARDS
+  ============================================================ -->
+  <section class="awards-section">
+    <div class="container">
+      <div class="section-header text-center mb-5" data-aos="fade-up">
+        <span class="section-eyebrow">Recognition</span>
+        <h2 class="section-title text-white">Awards &amp; <span class="text-orange">Milestones</span></h2>
+      </div>
+      <div class="awards-row" data-aos="fade-up" data-aos-delay="80">
+        <div class="award-badge-item">
+          <div class="award-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div class="award-info">
+            <strong>Best Digital Agency</strong>
+            <small>India Digital Summit, 2024</small>
+          </div>
+        </div>
+        <div class="award-badge-item">
+          <div class="award-icon"><i class="fa-solid fa-star"></i></div>
+          <div class="award-info">
+            <strong>Top SEO Agency</strong>
+            <small>Clutch.co, 2023 &amp; 2024</small>
+          </div>
+        </div>
+        <div class="award-badge-item">
+          <div class="award-icon"><i class="fa-brands fa-google"></i></div>
+          <div class="award-info">
+            <strong>Google Premier Partner</strong>
+            <small>Since 2019</small>
+          </div>
+        </div>
+        <div class="award-badge-item">
+          <div class="award-icon"><i class="fa-solid fa-medal"></i></div>
+          <div class="award-info">
+            <strong>Deloitte Fast 50</strong>
+            <small>Technology Fast 50, 2022</small>
+          </div>
+        </div>
+        <div class="award-badge-item">
+          <div class="award-icon"><i class="fa-solid fa-handshake"></i></div>
+          <div class="award-info">
+            <strong>Meta Business Partner</strong>
+            <small>Since 2020</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     ABOUT PAGE CTA
+  ============================================================ -->
+  <section class="about-cta">
+    <div class="container text-center" data-aos="zoom-in">
+      <span class="section-eyebrow" style="background:rgba(255,255,255,0.15);color:#fff;">Ready to grow?</span>
+      <h2 class="mt-3 mb-3">Let's Build Something <br>Worth Talking About</h2>
+      <p class="mb-4">Book a free 30-minute strategy call — no pitch, no fluff, just clarity on what's possible for your business.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap">
+        <a href="tel:+911234567890" class="btn btn-white btn-lg">
+          <i class="fa-solid fa-phone me-2"></i>Call Us Now
+        </a>
+        <a href="mailto:hello@nexacore.io" class="btn btn-outline-white-solid btn-lg">
+          <i class="fa-solid fa-envelope me-2"></i>Send a Message
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WhatsApp Float Button -->
+  <a class="wa-btn" href="https://wa.me/+919530377466" target="_blank" title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- ============================================================
+     FOOTER
+  ============================================================ -->
+  <footer class="main-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <a class="footer-brand d-flex align-items-center gap-2 mb-3" href="index.html">
+              <span class="logo-icon small"><i class="fa-solid fa-bolt"></i></span>
+              <span class="logo-text text-white">SL<span class="logo-accent">Tech</span></span>
+            </a>
+            <p class="footer-desc">We partner with ambitious companies to unlock their digital potential — from strategy to execution to measurable growth.</p>
+            <div class="social-icons">
+              <!-- <a href="#"><i class="fa-brands fa-linkedin-in"></i></a> -->
+              <!-- <a href="#"><i class="fa-brands fa-x-twitter"></i></a> -->
+              <a href="https://www.instagram.com/sl_tech__?igsh=MWkwZnVoY3MxZXZxaA=="><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-brands fa-google"></i></a>
+              <!-- <a href="#"><i class="fa-brands fa-facebook-f"></i></a> -->
+              <!-- <a href="#"><i class="fa-brands fa-youtube"></i></a> -->
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-4">
+            <h6 class="footer-heading">Company</h6>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="portfolio.html">Portfolio</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-4">
+            <h6 class="footer-heading">Services</h6>
+            <ul class="footer-links">
+              <li><a href="services.html#web">Web Development</a></li>
+              <li><a href="services.html#meta">Meta Ads</a></li>
+              <li><a href="services.html#social">Social Media</a></li>
+              <li><a href="services.html#video">Video Editing</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-4">
+            <h6 class="footer-heading">Stay in the Loop</h6>
+            <p class="footer-desc">Monthly insights on digital marketing, no fluff.</p>
+
+            <ul class="footer-contact">
+              <li><i class="fa-solid fa-location-dot"></i>Manikya Nagar, Bhilwara, RJ 311001</li>
+              <li><i class="fa-solid fa-phone"></i>+919530377466</li>
+              <li><i class="fa-solid fa-envelope"></i> hello@sltech.io</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <p class="mb-0">&copy; 2025 SLTech Digital. All rights reserved.</p>
+        <div class="d-flex gap-3">
+          <a href="#">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <script>
+    // AOS init
+    AOS.init({
+      duration: 700,
+      once: true,
+      offset: 60
+    });
+
+    // Navbar scroll
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Back to top
+    const btn = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 400));
+    btn.addEventListener('click', () => window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    }));
+
+    // Sidebar
+    function openSidebar() {
+      document.getElementById('sidebar').classList.add('open');
+      document.getElementById('sidebarOverlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebarOverlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function toggleSub(id, btn) {
+      const sub = document.getElementById(id);
+      const isOpen = sub.classList.contains('open');
+      document.querySelectorAll('.sidebar-submenu.open').forEach(el => el.classList.remove('open'));
+      document.querySelectorAll('.sidebar-section-toggle.expanded').forEach(el => el.classList.remove('expanded'));
+      if (!isOpen) {
+        sub.classList.add('open');
+        btn.classList.add('expanded');
+      }
+    }
+    document.querySelectorAll('.sidebar-nav a, .sidebar-submenu a').forEach(link => {
+      link.addEventListener('click', closeSidebar);
+    });
+  </script>
+</body>
+
+</html>
