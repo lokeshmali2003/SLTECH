@@ -120,7 +120,7 @@ a {
 }
 
 .logo {
-    width: 40px;
+    width: 150px;
 }
 
 .section-title {
@@ -518,13 +518,13 @@ a {
 ============================================================ */
 #mainNav {
     background: transparent;
-    padding: 20px 0;
+    padding: 0;
     transition: background .4s ease, padding .4s ease, box-shadow .4s ease;
 }
 
 #mainNav.scrolled {
     background: rgba(10, 10, 10, 0.97);
-    padding: 12px 0;
+    padding: 0;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(12px);
 }
