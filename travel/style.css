@@ -1,0 +1,1437 @@
+/* =====================================================================
+   UNIक CAB SERVICE — STYLESHEET
+   Color theme derived from the brand logo: deep navy + signature orange.
+   Sections ordered to match index.html top -> bottom.
+===================================================================== */
+
+/* ---------------------------------------------------------------
+   1. DESIGN TOKENS
+--------------------------------------------------------------- */
+:root {
+    /* Colors — pulled from the Uniक logo */
+    --navy-deep: #0A1F44;
+    /* darkest navy — topbar, footer */
+    --navy: #123B72;
+    /* primary navy — headings, nav */
+    --navy-light: #1F5FA8;
+    /* lighter navy accent */
+    --orange: #F5821F;
+    /* signature CTA orange */
+    --orange-dark: #D96A0E;
+    --sand: #F6F8FB;
+    /* page background (cool, not warm) */
+    --sand-2: #EDF1F7;
+    --white: #FFFFFF;
+    --muted: #5B6B82;
+    --ink: #0F2138;
+
+    /* Type */
+    --font-main: 'Poppins', sans-serif;
+
+    /* Shadows / radii */
+    --shadow-soft: 0 10px 30px rgba(10, 31, 68, 0.10);
+    --shadow-strong: 0 20px 45px rgba(10, 31, 68, 0.20);
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 8px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--ink);
+    background: var(--sand);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+::selection {
+    background: var(--orange);
+    color: var(--white);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ---------------------------------------------------------------
+   2. SHARED / UTILITY
+--------------------------------------------------------------- */
+.section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--orange-dark);
+    background: rgba(245, 130, 31, 0.1);
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 16px;
+}
+
+.section-eyebrow.light {
+    color: #FFCFA0;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.section-title {
+    font-weight: 800;
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    letter-spacing: -0.5px;
+    margin-bottom: 18px;
+    color: var(--navy-deep);
+}
+
+.section-title.light {
+    color: var(--white);
+}
+
+.section-text {
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+
+/* Orange CTA button — the signature action color across the site */
+.btn-cta-orange {
+    background: var(--orange);
+    color: var(--white) !important;
+    border: none;
+    font-weight: 600;
+    padding: 12px 26px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    box-shadow: 0 8px 20px rgba(245, 130, 31, 0.35);
+}
+
+.btn-cta-orange:hover,
+.btn-cta-orange:focus {
+    background: var(--orange-dark);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(245, 130, 31, 0.45);
+}
+
+.btn-cta-orange.btn-sm {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+}
+
+.btn-outline-light-custom {
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    color: var(--white);
+    font-weight: 600;
+    padding: 12px 26px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(6px);
+    transition: all 0.25s ease;
+}
+
+.btn-outline-light-custom:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--white);
+}
+
+.reveal-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.badge-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(245, 130, 31, 0.18);
+    color: #FFCFA0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: 30px;
+}
+
+/* ---------------------------------------------------------------
+   3. TOP CONTACT BAR — RESPONSIVE
+   Visible md and up (d-none d-md-block set in HTML). On the
+   md breakpoint only phone + open-badge show; email/address/
+   social reveal progressively from lg upward so nothing wraps
+   or overlaps.
+--------------------------------------------------------------- */
+.topbar {
+    background: var(--navy-deep);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+    position: relative;
+    z-index: 1050;
+}
+
+.topbar a {
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.topbar a:hover {
+    color: var(--orange);
+}
+
+.topbar i {
+    color: var(--orange);
+    margin-right: 4px;
+}
+
+.topbar-divider {
+    width: 1px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.topbar-left,
+.topbar-right {
+    min-width: 0;
+}
+
+.topbar-left span,
+.topbar-left a {
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------
+   4. STICKY RESPONSIVE NAVBAR
+--------------------------------------------------------------- */
+.navbar-main {
+    background: transparent;
+    padding: 16px 0;
+    transition: background 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
+    top: 0;
+}
+
+.navbar-main.scrolled {
+    background: rgba(10, 31, 68, 0.97);
+    padding: 8px 0;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.brand-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: var(--white);
+    flex-shrink: 0;
+}
+
+.brand-text {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--white);
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+.brand-text .hi {
+    color: var(--orange);
+}
+
+.brand-text small {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+}
+
+.nav-call-mobile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--orange);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.navbar-main .nav-link {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 500;
+    padding: 8px 16px !important;
+    position: relative;
+}
+
+.navbar-main .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 2px;
+    height: 2px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.navbar-main .nav-link:hover::after,
+.navbar-main .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.navbar-main .nav-link:hover,
+.navbar-main .nav-link.active {
+    color: var(--white);
+}
+
+.navbar-main .dropdown-menu {
+    border: none;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-strong);
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.navbar-main .dropdown-item {
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar-main .dropdown-item:hover {
+    background: rgba(245, 130, 31, 0.1);
+    color: var(--orange-dark);
+}
+
+.navbar-main .dropdown-item i {
+    color: var(--orange);
+}
+
+.navbar-toggler {
+    border: none;
+    box-shadow: none !important;
+    padding: 6px 10px;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2.5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-main.scrolled .brand-text,
+.navbar-main .brand-text {
+    color: var(--white);
+}
+
+/* ---------------------------------------------------------------
+   5. MOBILE OFFCANVAS MENU
+   Using a true offcanvas (rather than a plain .collapse) keeps
+   the mobile nav usable at any viewport width: full height,
+   independently scrollable, and it carries the contact details
+   that the topbar hides below the md breakpoint.
+--------------------------------------------------------------- */
+.mobile-menu {
+    width: min(340px, 86vw);
+    background: var(--navy-deep);
+    color: var(--white);
+}
+
+.mobile-menu .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.mobile-nav-list .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 14px 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-nav-list .nav-link:hover {
+    color: var(--orange);
+}
+
+.mobile-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 0.9rem;
+}
+
+.mobile-contact a,
+.mobile-contact span {
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-contact i {
+    color: var(--orange);
+}
+
+.mobile-contact .badge-open {
+    align-self: flex-start;
+}
+
+.mobile-social {
+    display: flex;
+    gap: 12px;
+}
+
+.mobile-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.mobile-social a:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+}
+
+/* ---------------------------------------------------------------
+   6. HERO SECTION
+--------------------------------------------------------------- */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-carousel,
+.hero-carousel .carousel-inner,
+.hero-carousel .carousel-item {
+    height: 100vh;
+    min-height: 640px;
+}
+
+.hero-slide-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transform: scale(1.08);
+    animation: heroZoom 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+    0% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 31, 68, 0.6) 0%, rgba(10, 31, 68, 0.5) 40%, rgba(10, 31, 68, 0.9) 100%);
+    z-index: 1;
+}
+
+.route-path {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: var(--white);
+    padding-top: 40px;
+}
+
+.hero-eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 8px 20px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    backdrop-filter: blur(6px);
+}
+
+.hero-title {
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    display: block;
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    animation: heroLineUp 1s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.hero-title .line1 {
+    animation-delay: 0.15s;
+}
+
+.hero-title .line2 {
+    animation-delay: 0.35s;
+    background: linear-gradient(90deg, #FFD9A8, #F5821F 60%, #FFD9A8);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: heroLineUp 1s cubic-bezier(.2, .8, .2, 1) both, shimmer 5s linear infinite 1.2s;
+}
+
+@keyframes heroLineUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    to {
+        background-position: -200% center;
+    }
+}
+
+.hero-sub {
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    color: rgba(255, 255, 255, 0.88);
+    max-width: 620px;
+    margin: 0 auto 32px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.booking-widget-wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 40px;
+    z-index: 4;
+}
+
+.booking-widget {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    box-shadow: var(--shadow-strong);
+}
+
+.booking-widget .form-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.booking-widget .form-label i {
+    color: var(--orange);
+    margin-right: 4px;
+}
+
+.booking-widget .form-control,
+.booking-widget .form-select {
+    border: 1.5px solid #E3E9F2;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.92rem;
+}
+
+.booking-widget .form-control:focus,
+.booking-widget .form-select:focus {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 3px rgba(245, 130, 31, 0.15);
+}
+
+.booking-widget .btn-cta-orange {
+    width: 100%;
+    height: 44px;
+    margin-top: auto;
+}
+
+@media (max-width: 991.98px) {
+    .booking-widget-wrap {
+        position: static;
+        margin-top: -60px;
+        padding-bottom: 40px;
+    }
+
+    .hero {
+        height: auto;
+        padding-bottom: 40px;
+    }
+
+    .hero-carousel,
+    .hero-carousel .carousel-inner,
+    .hero-carousel .carousel-item {
+        height: 100vh;
+    }
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    color: var(--white);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: bounceDown 2s infinite;
+}
+
+.scroll-down span {
+    width: 1px;
+    height: 34px;
+    background: rgba(255, 255, 255, 0.6);
+    margin-bottom: 6px;
+}
+
+@keyframes bounceDown {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 10px);
+    }
+}
+
+@media (min-width: 992px) {
+    .scroll-down {
+        display: flex;
+    }
+}
+
+.hero-dots {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@media (min-width: 992px) {
+    .hero-dots {
+        display: flex;
+    }
+}
+
+.hero-dots button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.8);
+    background: transparent;
+    padding: 0;
+    transition: all 0.25s ease;
+}
+
+.hero-dots button.active {
+    background: var(--orange);
+    border-color: var(--orange);
+    transform: scale(1.3);
+}
+
+/* ---------------------------------------------------------------
+   7. STATS / ABOUT SECTION
+--------------------------------------------------------------- */
+.stats-section {
+    padding: 110px 0 90px;
+    background: var(--sand);
+}
+
+.check-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.check-list i {
+    color: var(--orange);
+    font-size: 1.1rem;
+}
+
+.stat-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 30px 16px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-strong);
+}
+
+.stat-card i {
+    font-size: 1.8rem;
+    color: var(--orange);
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    font-weight: 800;
+    font-size: 1.9rem;
+    margin-bottom: 2px;
+    color: var(--navy-deep);
+}
+
+.stat-card p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+/* ---------------------------------------------------------------
+   8. SERVICES
+--------------------------------------------------------------- */
+.services-section {
+    padding: 90px 0;
+    background: var(--sand-2);
+}
+
+.service-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 34px 26px;
+    height: 100%;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-strong);
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: rgba(245, 130, 31, 0.12);
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+}
+
+.service-card h5 {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--navy-deep);
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 18px;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--orange);
+    transition: gap 0.25s ease;
+}
+
+.card-link:hover {
+    gap: 10px;
+    color: var(--orange-dark);
+}
+
+/* ---------------------------------------------------------------
+   9. FLEET
+--------------------------------------------------------------- */
+.fleet-section {
+    padding: 90px 0;
+    background: var(--sand);
+}
+
+.fleet-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    height: 100%;
+    position: relative;
+}
+
+.fleet-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-strong);
+}
+
+.fleet-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.fleet-body {
+    padding: 20px;
+}
+
+.fleet-body h5 {
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--navy-deep);
+}
+
+.fleet-meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+}
+
+.fleet-meta i {
+    color: var(--orange);
+}
+
+.fleet-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px dashed #E3E9F2;
+    padding-top: 14px;
+}
+
+.fleet-footer .price {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--navy-deep);
+}
+
+.fleet-footer .price small {
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+.ribbon {
+    position: absolute;
+    top: 16px;
+    right: -34px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 6px 40px;
+    transform: rotate(35deg);
+    z-index: 2;
+    letter-spacing: 0.5px;
+}
+
+/* ---------------------------------------------------------------
+   10. PRICING
+--------------------------------------------------------------- */
+.pricing-section {
+    padding: 90px 0;
+    background: var(--navy-deep);
+    background-image: radial-gradient(circle at 15% 20%, rgba(245, 130, 31, 0.14), transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(31, 95, 168, 0.35), transparent 40%);
+    position: relative;
+}
+
+.pricing-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: 40px 30px;
+    height: 100%;
+    color: var(--white);
+    position: relative;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.pricing-card.featured {
+    background: rgba(245, 130, 31, 0.12);
+    border-color: rgba(245, 130, 31, 0.5);
+}
+
+.pricing-card h5 {
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.pricing-amount {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--orange);
+    margin-bottom: 20px;
+}
+
+.pricing-amount span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.pricing-includes {
+    margin-bottom: 26px;
+}
+
+.pricing-includes li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.pricing-includes i {
+    color: var(--orange);
+}
+
+.pricing-card .ribbon {
+    top: 20px;
+}
+
+/* ---------------------------------------------------------------
+   11. TESTIMONIALS
+--------------------------------------------------------------- */
+.testimonials-section {
+    padding: 90px 0;
+    background: var(--sand-2);
+}
+
+.testimonial-card {
+    max-width: 700px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 44px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+}
+
+.stars {
+    color: var(--orange);
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    letter-spacing: 3px;
+}
+
+.testimonial-card p {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.7;
+    margin-bottom: 26px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.testimonial-author img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--orange);
+}
+
+.testimonial-author h6 {
+    font-weight: 700;
+    margin: 0;
+    color: var(--navy-deep);
+}
+
+.testimonial-author span {
+    font-size: 0.82rem;
+    color: var(--muted);
+}
+
+#testimonialCarousel .carousel-control-prev,
+#testimonialCarousel .carousel-control-next {
+    width: 60px;
+    opacity: 1;
+}
+
+.testi-arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--navy-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-soft);
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.testi-arrow:hover {
+    background: var(--orange);
+    color: var(--white);
+}
+
+/* ---------------------------------------------------------------
+   12. DOWNLOAD APP / CTA BAND
+--------------------------------------------------------------- */
+.newsletter-section {
+    padding: 0 0 90px;
+    background: var(--sand);
+}
+
+.newsletter-box {
+    background: linear-gradient(120deg, var(--navy-deep), var(--navy-light));
+    border-radius: var(--radius-lg);
+    padding: 50px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-box::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    background: rgba(245, 130, 31, 0.25);
+    border-radius: 50%;
+    top: -120px;
+    right: -60px;
+}
+
+.newsletter-box h3 {
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.newsletter-box p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.newsletter-form .form-control {
+    border-radius: 30px;
+    border: none;
+    padding: 12px 20px;
+}
+
+.newsletter-form .form-control:focus {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+.newsletter-success {
+    display: none;
+    margin-top: 14px;
+    font-size: 0.88rem;
+    color: #FFD9A8;
+    align-items: center;
+    gap: 6px;
+}
+
+.newsletter-success.show {
+    display: flex;
+}
+
+@media (max-width: 575.98px) {
+    .newsletter-form {
+        flex-direction: column;
+    }
+
+    .newsletter-box {
+        padding: 34px 24px;
+    }
+}
+
+/* ---------------------------------------------------------------
+   13. FOOTER
+--------------------------------------------------------------- */
+.site-footer {
+    background: var(--navy-deep);
+    color: rgba(255, 255, 255, 0.75);
+    padding: 80px 0 30px;
+}
+
+.footer-brand {
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-brand .hi {
+    color: var(--orange);
+}
+
+.site-footer p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+.site-footer h6 {
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.footer-social a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.footer-social a:hover {
+    background: var(--orange);
+    border-color: var(--orange);
+    transform: translateY(-4px);
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    font-size: 0.9rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--orange);
+    padding-left: 4px;
+}
+
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 0.9rem;
+}
+
+.footer-contact i {
+    color: var(--orange);
+    margin-top: 3px;
+}
+
+.site-footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 40px 0 24px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.85rem;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 14px;
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ---------------------------------------------------------------
+   14. FLOATING BUTTONS
+--------------------------------------------------------------- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    width: 58px;
+    height: 58px;
+    background: #25D366;
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+    z-index: 1200;
+    animation: pulseWA 2.4s infinite;
+}
+
+.whatsapp-float:hover {
+    color: var(--white);
+    transform: scale(1.08);
+}
+
+@keyframes pulseWA {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+    }
+
+    70% {
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
+    background: var(--orange);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow-soft);
+    z-index: 1200;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.3s ease;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--orange-dark);
+}
+
+/* ---------------------------------------------------------------
+   15. RESPONSIVE FINE-TUNING
+   Breakpoints covered: <576 (phones), 576-767 (large phones),
+   768-991 (tablets), 992-1199 (small desktop), 1200+ (desktop)
+--------------------------------------------------------------- */
+
+/* Tablets and below: desktop nav hidden, offcanvas trigger shown
+   (handled by d-lg-flex / d-lg-none utility classes in the HTML) */
+@media (max-width: 991.98px) {
+    .navbar-main {
+        padding: 12px 0;
+    }
+
+    .brand-logo {
+        width: 38px;
+        height: 38px;
+    }
+
+    .brand-text {
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .booking-widget {
+        padding: 18px;
+    }
+
+    .stats-section,
+    .services-section,
+    .fleet-section,
+    .pricing-section,
+    .testimonials-section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btns .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .whatsapp-float,
+    .back-to-top {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+    }
+
+    .whatsapp-float {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .testimonial-card {
+        padding: 30px 22px;
+    }
+}
+
+/* Extra-small phones (<400px): tighten brand text so it never
+   collides with the call/hamburger buttons */
+@media (max-width: 360px) {
+    .brand-text {
+        font-size: 0.92rem;
+    }
+
+    .brand-logo {
+        width: 34px;
+        height: 34px;
+    }
+}

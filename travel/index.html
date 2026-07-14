@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uniक Cab Service | Safe Ride. On Time. Every Time.</title>
+  <meta name="description" content="Uniक Cab Service offers safe, on-time local, outstation and airport cab rides with verified drivers and transparent pricing." />
+
+  <!-- ===== Google Fonts: Poppins ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- ===== Bootstrap 5 CSS ===== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- ===== Bootstrap Icons ===== -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- ===== Favicon ===== -->
+  <link rel="icon" type="image/jpeg" href="images/logo.jpeg">
+
+  <!-- ===== Custom Stylesheet ===== -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =====================================================
+       TOP CONTACT BAR
+       Fully responsive: collapses to essentials on small screens,
+       hides entirely below the sm breakpoint (info moves into
+       the mobile offcanvas menu instead).
+  ====================================================== -->
+  <!-- <div class="topbar d-none d-md-block">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center py-2 flex-wrap gap-2">
+        <div class="topbar-left d-flex align-items-center flex-wrap gap-3 gap-lg-4">
+          <a href="tel:+919876543210"><i class="bi bi-telephone-fill"></i> +91 98765 43210</a>
+          <a href="mailto:booking@unikcabs.com" class="d-none d-lg-inline"><i class="bi bi-envelope-fill"></i> booking@unikcabs.com</a>
+          <span class="d-none d-lg-inline"><i class="bi bi-geo-alt-fill"></i> Serving 25+ Cities Pan-India</span>
+        </div>
+        <div class="topbar-right d-flex align-items-center gap-3">
+          <span class="badge-open"><i class="bi bi-clock-fill"></i> Available 24/7</span>
+          <span class="topbar-divider d-none d-lg-block"></span>
+          <a href="#" aria-label="Facebook" class="d-none d-lg-inline-flex"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram" class="d-none d-lg-inline-flex"><i class="bi bi-instagram"></i></a>
+          <a href="https://wa.me/919876543210" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- =====================================================
+       STICKY RESPONSIVE NAVBAR
+       Uses Bootstrap's offcanvas (not just .collapse) so the
+       mobile menu is a full, scrollable, properly stacked panel
+       with its own contact block — this is what fixes the
+       "not responsive on mobile" problem from the last build.
+  ====================================================== -->
+  <nav class="navbar navbar-expand-lg navbar-main fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <img src="images/logo.jpeg" alt="Uniक Cab Service logo" class="brand-logo">
+        <span class="brand-text d-none d-sm-inline">Uni<span class="hi">क</span> <small>Cab Service</small></span>
+      </a>
+
+      <div class="d-flex align-items-center gap-2 d-lg-none">
+        <a href="tel:+919876543210" class="nav-call-mobile" aria-label="Call us"><i class="bi bi-telephone-fill"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <!-- Desktop nav (visible lg and up) -->
+      <div class="collapse navbar-collapse d-none d-lg-flex" id="navMenuDesktop">
+        <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#services"><i class="bi bi-airplane"></i> Airport Transfer</a></li>
+              <li><a class="dropdown-item" href="#services"><i class="bi bi-signpost-2"></i> Outstation Trips</a></li>
+              <li><a class="dropdown-item" href="#services"><i class="bi bi-building"></i> Corporate Cabs</a></li>
+              <li><a class="dropdown-item" href="#services"><i class="bi bi-heart"></i> Wedding Car Rental</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#services">View all services &rarr;</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="#fleet">Our Fleet</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <a href="#booking" class="btn btn-cta-orange">Book a Cab <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =====================================================
+       MOBILE OFFCANVAS MENU
+  ====================================================== -->
+  <div class="offcanvas offcanvas-end mobile-menu" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
+    <div class="offcanvas-header">
+      <a href="#home" class="navbar-brand" data-bs-dismiss="offcanvas">
+        <img src="images/logo.jpeg" alt="Uniक Cab Service logo" class="brand-logo">
+        <span class="brand-text">Uni<span class="hi">क</span> <small>Cab Service</small></span>
+      </a>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <ul class="navbar-nav mobile-nav-list">
+        <li class="nav-item"><a class="nav-link" href="#home" data-bs-dismiss="offcanvas">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services" data-bs-dismiss="offcanvas">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#fleet" data-bs-dismiss="offcanvas">Our Fleet</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing" data-bs-dismiss="offcanvas">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonials" data-bs-dismiss="offcanvas">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact" data-bs-dismiss="offcanvas">Contact</a></li>
+      </ul>
+
+      <a href="#booking" class="btn btn-cta-orange w-100 mt-3" data-bs-dismiss="offcanvas">Book a Cab <i class="bi bi-arrow-right"></i></a>
+
+      <hr>
+
+      <div class="mobile-contact">
+        <a href="tel:+919876543210"><i class="bi bi-telephone-fill"></i> +91 98765 43210</a>
+        <a href="mailto:booking@unikcabs.com"><i class="bi bi-envelope-fill"></i> booking@unikcabs.com</a>
+        <span><i class="bi bi-geo-alt-fill"></i> Serving 25+ Cities Pan-India</span>
+        <span class="badge-open mt-2"><i class="bi bi-clock-fill"></i> Available 24/7</span>
+      </div>
+
+      <div class="mobile-social mt-auto pt-4">
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://wa.me/919876543210" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =====================================================
+       HERO SECTION — FULL SCREEN CAROUSEL
+  ====================================================== -->
+  <header id="home" class="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel" data-bs-interval="6000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1920&q=80" alt="City road at dusk with car lights" class="d-block w-100 hero-slide-img">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1920&q=80" alt="White sedan car on highway" class="d-block w-100 hero-slide-img">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1920&q=80" alt="City skyline street view at night" class="d-block w-100 hero-slide-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- Dark navy gradient overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Signature element: animated route path with a moving car marker -->
+    <svg class="route-path d-none d-md-block" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
+      <path id="routePathLine" d="M -20 240 C 220 90, 360 270, 540 130 S 860 60, 1020 100" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 10" opacity="0.5" />
+      <circle r="5" fill="#F5821F" class="car-dot">
+        <animateMotion dur="8s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#routePathLine" />
+        </animateMotion>
+      </circle>
+    </svg>
+
+    <div class="container hero-content text-center">
+      <span class="hero-eyebrow reveal-up">TRUSTED BY 50,000+ RIDERS &bull; 25+ CITIES</span>
+      <h1 class="hero-title">
+        <span class="line1 reveal-up">Safe rides, on time,</span>
+        <span class="line2 reveal-up">every single time</span>
+      </h1>
+      <p class="hero-sub reveal-up">Verified drivers, GPS-tracked cabs and transparent fares for local trips, outstation journeys and airport transfers.</p>
+      <div class="hero-btns reveal-up">
+        <a href="#booking" class="btn btn-cta-orange btn-lg">Book a Cab Now <i class="bi bi-arrow-right"></i></a>
+        <a href="tel:+919876543210" class="btn btn-outline-light-custom btn-lg">
+          <i class="bi bi-telephone-fill"></i> Call to Book
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating booking widget -->
+    <div class="container booking-widget-wrap" id="booking">
+      <form class="booking-widget row g-3 align-items-end reveal-up">
+        <div class="col-6 col-lg-3">
+          <label class="form-label"><i class="bi bi-record-circle"></i> Pickup Location</label>
+          <input type="text" class="form-control" placeholder="Enter pickup address">
+        </div>
+        <div class="col-6 col-lg-3">
+          <label class="form-label"><i class="bi bi-geo-alt"></i> Drop Location</label>
+          <input type="text" class="form-control" placeholder="Where to?">
+        </div>
+        <div class="col-6 col-lg-2">
+          <label class="form-label"><i class="bi bi-calendar-event"></i> Date &amp; Time</label>
+          <input type="datetime-local" class="form-control">
+        </div>
+        <div class="col-6 col-lg-2">
+          <label class="form-label"><i class="bi bi-car-front"></i> Cab Type</label>
+          <select class="form-select">
+            <option>Hatchback</option>
+            <option>Sedan</option>
+            <option>SUV</option>
+            <option>Traveller</option>
+          </select>
+        </div>
+        <div class="col-12 col-lg-2 d-grid">
+          <button type="submit" class="btn btn-cta-orange"><i class="bi bi-search"></i> Check Fare</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Scroll down button -->
+    <a href="#about" class="scroll-down" aria-label="Scroll down">
+      <span></span>
+      <i class="bi bi-chevron-down"></i>
+    </a>
+
+    <!-- Carousel indicators (custom minimal dots) -->
+    <div class="hero-dots">
+      <button data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+      <button data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+      <button data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       ABOUT / STATS STRIP
+  ====================================================== -->
+  <section id="about" class="stats-section">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 reveal-up">
+          <span class="section-eyebrow"><i class="bi bi-shield-check"></i> Who We Are</span>
+          <h2 class="section-title">A cab service built around three promises</h2>
+          <p class="section-text">
+            Uniक Cab Service runs a verified fleet with GPS-tracked vehicles and background-checked drivers across
+            25+ cities. Whether it's a daily commute, an airport run or a cross-city trip, we keep it safe, on time
+            and upfront on price &mdash; no surge, no surprises.
+          </p>
+          <ul class="check-list">
+            <li><i class="bi bi-shield-check"></i> Safe Ride &mdash; verified drivers &amp; sanitized cabs</li>
+            <li><i class="bi bi-clock-history"></i> On Time &mdash; live tracking, zero-wait pickups</li>
+            <li><i class="bi bi-person-check"></i> Every Time &mdash; consistent service, every trip</li>
+          </ul>
+          <a href="#booking" class="btn btn-cta-orange mt-2">Book Your Ride <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-4 text-center">
+            <div class="col-6 col-md-3 reveal-up">
+              <div class="stat-card">
+                <i class="bi bi-geo-alt"></i>
+                <h3><span class="counter" data-target="25">0</span>+</h3>
+                <p>Cities Covered</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 reveal-up" style="transition-delay:.1s">
+              <div class="stat-card">
+                <i class="bi bi-emoji-smile"></i>
+                <h3><span class="counter" data-target="50000">0</span>+</h3>
+                <p>Happy Riders</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 reveal-up" style="transition-delay:.2s">
+              <div class="stat-card">
+                <i class="bi bi-car-front-fill"></i>
+                <h3><span class="counter" data-target="800">0</span>+</h3>
+                <p>Verified Cabs</p>
+              </div>
+            </div>
+            <div class="col-6 col-md-3 reveal-up" style="transition-delay:.3s">
+              <div class="stat-card">
+                <i class="bi bi-star-fill"></i>
+                <h3><span class="counter" data-target="4.8">0</span></h3>
+                <p>Average Rating</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SERVICES
+  ====================================================== -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <div class="text-center mb-5 reveal-up">
+        <span class="section-eyebrow"><i class="bi bi-grid"></i> What We Offer</span>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-text mx-auto" style="max-width:640px">One fleet, every kind of trip &mdash; book by the ride, by the day, or on a standing schedule.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3 reveal-up">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-airplane-fill"></i></div>
+            <h5>Airport Transfer</h5>
+            <p>On-time pickups and drops with flight tracking, so a delay never means a missed cab.</p>
+            <a href="#booking" class="card-link">Book Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay:.1s">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-signpost-2-fill"></i></div>
+            <h5>Outstation Trips</h5>
+            <p>One-way or round trips between cities with a single all-inclusive fare.</p>
+            <a href="#booking" class="card-link">Book Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay:.2s">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-building-fill"></i></div>
+            <h5>Corporate Cabs</h5>
+            <p>Employee transport and business travel with monthly billing and dedicated support.</p>
+            <a href="#booking" class="card-link">Book Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay:.3s">
+          <div class="service-card">
+            <div class="service-icon"><i class="bi bi-heart-fill"></i></div>
+            <h5>Wedding Car Rental</h5>
+            <p>Decorated cars and punctual chauffeurs for weddings and special occasions.</p>
+            <a href="#booking" class="card-link">Book Now <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       OUR FLEET
+  ====================================================== -->
+  <section id="fleet" class="fleet-section">
+    <div class="container">
+      <div class="text-center mb-5 reveal-up">
+        <span class="section-eyebrow"><i class="bi bi-car-front"></i> Choose Your Ride</span>
+        <h2 class="section-title">Our Fleet</h2>
+        <p class="section-text mx-auto" style="max-width:640px">From quick city hops to long family trips &mdash; a cab sized right for every journey.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Hatchback -->
+        <div class="col-md-6 col-lg-3 reveal-up">
+          <div class="fleet-card">
+            <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=600&q=80" alt="Compact hatchback car">
+            <div class="fleet-body">
+              <h5>Hatchback</h5>
+              <p class="fleet-meta"><i class="bi bi-people"></i> 4 Seats &nbsp;&bull;&nbsp; <i class="bi bi-bag"></i> 2 Bags</p>
+              <div class="fleet-footer">
+                <span class="price">&#8377;12<small>/km</small></span>
+                <a href="#booking" class="btn btn-cta-orange btn-sm">Select</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sedan -->
+        <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay:.1s">
+          <div class="fleet-card">
+            <span class="ribbon">Most Booked</span>
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=600&q=80" alt="Sedan car">
+            <div class="fleet-body">
+              <h5>Sedan</h5>
+              <p class="fleet-meta"><i class="bi bi-people"></i> 4 Seats &nbsp;&bull;&nbsp; <i class="bi bi-bag"></i> 3 Bags</p>
+              <div class="fleet-footer">
+                <span class="price">&#8377;15<small>/km</small></span>
+                <a href="#booking" class="btn btn-cta-orange btn-sm">Select</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SUV -->
+        <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay:.2s">
+          <div class="fleet-card">
+            <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=80" alt="SUV car">
+            <div class="fleet-body">
+              <h5>SUV</h5>
+              <p class="fleet-meta"><i class="bi bi-people"></i> 6 Seats &nbsp;&bull;&nbsp; <i class="bi bi-bag"></i> 4 Bags</p>
+              <div class="fleet-footer">
+                <span class="price">&#8377;20<small>/km</small></span>
+                <a href="#booking" class="btn btn-cta-orange btn-sm">Select</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Traveller -->
+        <div class="col-md-6 col-lg-3 reveal-up" style="transition-delay:.3s">
+          <div class="fleet-card">
+            <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=600&q=80" alt="Passenger van">
+            <div class="fleet-body">
+              <h5>Traveller Van</h5>
+              <p class="fleet-meta"><i class="bi bi-people"></i> 12 Seats &nbsp;&bull;&nbsp; <i class="bi bi-bag"></i> 8 Bags</p>
+              <div class="fleet-footer">
+                <span class="price">&#8377;28<small>/km</small></span>
+                <a href="#booking" class="btn btn-cta-orange btn-sm">Select</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PRICING / PACKAGES
+  ====================================================== -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="text-center mb-5 reveal-up">
+        <span class="section-eyebrow light"><i class="bi bi-tags"></i> Transparent Fares</span>
+        <h2 class="section-title light">Simple, Upfront Pricing</h2>
+        <p class="section-text mx-auto" style="max-width:640px;color:rgba(255,255,255,.75)">No surge pricing, no hidden fees &mdash; the fare you see is the fare you pay.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 reveal-up">
+          <div class="pricing-card">
+            <h5>Local Rides</h5>
+            <div class="pricing-amount">&#8377;12<span>/km</span></div>
+            <ul class="pricing-includes">
+              <li><i class="bi bi-check2"></i> Pay-as-you-go metered fare</li>
+              <li><i class="bi bi-check2"></i> Free waiting up to 5 minutes</li>
+              <li><i class="bi bi-check2"></i> Live GPS tracking</li>
+            </ul>
+            <a href="#booking" class="btn btn-cta-orange w-100">Book Local Ride</a>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal-up" style="transition-delay:.1s">
+          <div class="pricing-card featured">
+            <span class="ribbon">Best Value</span>
+            <h5>Outstation</h5>
+            <div class="pricing-amount">&#8377;13<span>/km</span></div>
+            <ul class="pricing-includes">
+              <li><i class="bi bi-check2"></i> Driver allowance included</li>
+              <li><i class="bi bi-check2"></i> Toll &amp; state tax included</li>
+              <li><i class="bi bi-check2"></i> Free cancellation up to 1hr</li>
+            </ul>
+            <a href="#booking" class="btn btn-cta-orange w-100">Book Outstation</a>
+          </div>
+        </div>
+        <div class="col-lg-4 reveal-up" style="transition-delay:.2s">
+          <div class="pricing-card">
+            <h5>Airport Transfer</h5>
+            <div class="pricing-amount">&#8377;699<span>/trip</span></div>
+            <ul class="pricing-includes">
+              <li><i class="bi bi-check2"></i> Flight delay tracking</li>
+              <li><i class="bi bi-check2"></i> Meet &amp; greet at arrival</li>
+              <li><i class="bi bi-check2"></i> Fixed fare, zero surge</li>
+            </ul>
+            <a href="#booking" class="btn btn-cta-orange w-100">Book Transfer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       TESTIMONIALS
+  ====================================================== -->
+  <section id="testimonials" class="testimonials-section">
+    <div class="container">
+      <div class="text-center mb-5 reveal-up">
+        <span class="section-eyebrow"><i class="bi bi-chat-quote"></i> Rider Stories</span>
+        <h2 class="section-title">What Our Riders Say</h2>
+      </div>
+
+      <div id="testimonialCarousel" class="carousel slide reveal-up" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="testimonial-card mx-auto">
+              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"Booked an airport pickup at 4am and the driver was waiting exactly on time, tracked my flight delay without me even asking. Painless start to the trip."</p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Portrait of Rohit Sharma">
+                <div>
+                  <h6>Rohit Sharma</h6>
+                  <span>Airport Transfer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card mx-auto">
+              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>"We use Uniक for our whole sales team's city visits. Monthly billing is clean, cabs always show up clean and on time. Zero complaints in eight months."</p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Portrait of Neha Kapoor">
+                <div>
+                  <h6>Neha Kapoor</h6>
+                  <span>Corporate Cabs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="testimonial-card mx-auto">
+              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+              <p>"Took an outstation SUV for a family trip. Fare was quoted upfront with tolls included, no surprise add-ons at the end. Driver was careful with the kids in the car."</p>
+              <div class="testimonial-author">
+                <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Portrait of Arjun Mehta">
+                <div>
+                  <h6>Arjun Mehta</h6>
+                  <span>Outstation Trip</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="testi-arrow"><i class="bi bi-chevron-left"></i></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="testi-arrow"><i class="bi bi-chevron-right"></i></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       DOWNLOAD APP / CTA BAND
+  ====================================================== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-box reveal-up">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7">
+            <h3><i class="bi bi-phone-fill"></i> Get fare alerts &amp; ride updates</h3>
+            <p>Share your number for booking confirmations, driver details and live trip updates by SMS &amp; WhatsApp.</p>
+          </div>
+          <div class="col-lg-5">
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="tel" class="form-control" placeholder="Enter your mobile number" pattern="[0-9]{10}" required>
+              <button type="submit" class="btn btn-cta-orange">Notify Me</button>
+            </form>
+            <div class="newsletter-success" id="newsletterSuccess">
+              <i class="bi bi-check-circle-fill"></i> Thanks! We'll text you shortly.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer id="contact" class="site-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <a class="footer-brand" href="#home">
+            <img src="images/logo.jpeg" alt="Uniक Cab Service logo" class="brand-logo">
+            <span>Uni<span class="hi">क</span> Cab Service</span>
+          </a>
+          <p class="mt-3">Safe, on-time and transparently priced cabs for local, outstation and airport travel across 25+ cities.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/919876543210" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6>Explore</h6>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#fleet">Our Fleet</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h6>Support</h6>
+          <ul class="footer-links">
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Booking Terms</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
+            <li><a href="#">Driver Partner Signup</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4">
+          <h6>Contact Us</h6>
+          <ul class="footer-contact">
+            <li><i class="bi bi-geo-alt-fill"></i> 12 MG Road, Bengaluru, KA 560001</li>
+            <li><i class="bi bi-telephone-fill"></i> +91 98765 43210</li>
+            <li><i class="bi bi-envelope-fill"></i> booking@unikcabs.com</li>
+            <li><i class="bi bi-clock-fill"></i> Available 24/7, every day</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Uniक Cab Service. All rights reserved.</p>
+        <div class="payment-icons">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-cash-coin"></i>
+          <i class="bi bi-wallet2"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================
+       FLOATING BUTTONS
+  ====================================================== -->
+  <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- ===== Bootstrap 5 JS Bundle ===== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ===== Custom JS ===== -->
+  <script src="script.js"></script>
+</body>
+
+</html>
