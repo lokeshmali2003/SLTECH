@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unic Cab Service &amp; Curated Journeys, Cabs &amp; Holiday Packages</title>
+  <meta name="description" content="Wayfarer Tours & Travels plans curated holiday packages, cab services and destination tours across India. Trusted travel partner for families, couples and corporate trips.">
+  <meta name="keywords" content="tour and travels, holiday packages, cab booking, travel agency, destination tours, honeymoon packages">
+  <meta name="author" content="Wayfarer Tours & Travels">
+  <meta property="og:title" content="Wayfarer Tours & Travels">
+  <meta property="og:description" content="Curated holiday packages, cab services and destination tours across India.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0B4F9C">
+
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon (inline compass svg) -->
+  <link rel="icon" href="">
+</head>
+
+<body>
+
+  <!-- ===== Route line decoration (signature element) ===== -->
+  <div class="route-line d-none d-lg-block" aria-hidden="true">
+    <svg width="100%" height="100%" viewBox="0 0 1440 3200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="route-path" d="M1360 0 C 1420 260, 1180 380, 1300 640 S 1120 1040, 1250 1300 S 60 1620, 180 1920 S 1300 2260, 1380 2560 S 120 2860, 200 3200" />
+    </svg>
+  </div>
+
+  <!-- ===== TOP BAR ===== -->
+  <div class="topbar">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center flex-wrap py-2">
+        <div class="topbar-info d-flex flex-wrap gap-3 gap-md-4">
+          <a href="tel:+911234567890"><i class="bi bi-telephone-fill"></i> +91 12345 67890</a>
+          <a href="mailto:fly@wayfarertours.com"><i class="bi bi-envelope-fill"></i> fly@wayfarertours.com</a>
+          <span class="d-none d-md-inline"><i class="bi bi-geo-alt-fill"></i> Jaipur, Rajasthan, India</span>
+        </div>
+        <div class="topbar-social d-flex align-items-center gap-3">
+          <span class="d-none d-sm-inline small">Follow us</span>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg sticky-top main-navbar" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="#top">
+        <img class="logo" src="images/sidelogo-removebg-preview.png" alt="">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar" aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarContent">
+        <ul class="navbar-nav mx-auto gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="Home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#packages">Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <a href="#booking" class="btn btn-cta-nav ms-lg-3">Plan My Trip <i class="bi bi-arrow-up-right"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MOBILE OFFCANVAS SIDEBAR ===== -->
+  <div class="offcanvas offcanvas-start mobile-sidebar" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+    <div class="offcanvas-header">
+      <a class="navbar-brand" href="#top">
+        <span class="d-inline-flex align-items-center gap-2">
+          <svg width="34" height="34" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="50" cy="50" r="47" fill="#FF8C00" />
+            <path d="M67 33 54 54 33 67 46 46Z" fill="#0B4F9C" />
+          </svg>
+          <span class="brand-text" style="color:#fff;">Wayfarer<span class="brand-accent">.</span></span>
+        </span>
+        <span class="sidebar-tagline">One journey at a time</span>
+      </a>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <span class="sidebar-section-label">Menu</span>
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" href="#about"><span class="nav-icon"><i class="bi bi-compass"></i></span> About<i class="bi bi-chevron-right nav-arrow"></i></a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" href="#why"><span class="nav-icon"><i class="bi bi-patch-check"></i></span> Why Choose Us<i class="bi bi-chevron-right nav-arrow"></i></a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" href="#packages"><span class="nav-icon"><i class="bi bi-suitcase2"></i></span> Tour Packages<i class="bi bi-chevron-right nav-arrow"></i></a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" href="#cabs"><span class="nav-icon"><i class="bi bi-car-front"></i></span> Cab Services<i class="bi bi-chevron-right nav-arrow"></i></a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" href="#destinations"><span class="nav-icon"><i class="bi bi-geo"></i></span> Destinations<i class="bi bi-chevron-right nav-arrow"></i></a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" href="#booking"><span class="nav-icon"><i class="bi bi-calendar-check"></i></span> Booking Process<i class="bi bi-chevron-right nav-arrow"></i></a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" href="#gallery"><span class="nav-icon"><i class="bi bi-images"></i></span> Gallery<i class="bi bi-chevron-right nav-arrow"></i></a></li>
+        <li class="nav-item"><a class="nav-link" data-bs-dismiss="offcanvas" href="#contact"><span class="nav-icon"><i class="bi bi-envelope"></i></span> Contact<i class="bi bi-chevron-right nav-arrow"></i></a></li>
+      </ul>
+
+      <div class="sidebar-divider"></div>
+
+      <a href="#booking" data-bs-dismiss="offcanvas" class="btn btn-cta-nav w-100">Plan My Trip <i class="bi bi-arrow-up-right"></i></a>
+
+      <div class="sidebar-contact">
+        <a href="tel:+911234567890"><i class="bi bi-telephone-fill"></i> +91 12345 67890</a>
+        <a href="mailto:fly@wayfarertours.com"><i class="bi bi-envelope-fill"></i> fly@wayfarertours.com</a>
+        <div class="sidebar-social">
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HERO / CAROUSEL ===== -->
+  <header id="top" class="hero">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5500">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active text-center p-2" style="background-image:url('https://cdn.britannica.com/25/242225-050-72142DF7/Front-facade-of-Palace-of-the-Winds-Hawa-Mahal-Jaipur-Rajasthan-India.jpg')">
+          <div class="hero-overlay"></div>
+          <div class="container hero-content">
+            <span class="eyebrow" data-aos><i class="bi bi-airplane-engines"></i> Boarding pass to your next story</span>
+            <h1 data-aos>Explore the World, <span class="text-accent">One Journey</span> at a Time</h1>
+            <p data-aos>Hand-planned holidays, verified cabs and local experts across 40+ destinations — so all you do is show up and enjoy.</p>
+            <div class="hero-btns" data-aos>
+              <a href="#packages" class="btn btn-primary-brand">View Packages <i class="bi bi-arrow-right"></i></a>
+              <a href="#booking" class="btn btn-outline-brand">Get a Free Quote</a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item text-center p-2" style="background-image:url('https://vwitours.com/wp-content/uploads/2023/04/Agra-tajmahal.jpeg')">
+          <div class="hero-overlay"></div>
+          <div class="container hero-content">
+            <span class="eyebrow"><i class="bi bi-mountain"></i> Mountains, deserts &amp; coastlines</span>
+            <h1>Every Landscape Has a <span class="text-accent">Seat</span> Waiting</h1>
+            <p>From Himalayan treks to Rajasthan's desert camps — we design the route, you collect the memories.</p>
+            <div class="hero-btns">
+              <a href="#destinations" class="btn btn-primary-brand">Explore Destinations <i class="bi bi-arrow-right"></i></a>
+              <a href="#booking" class="btn btn-outline-brand">Get a Free Quote</a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item text-center p-2" style="background-image:url('https://ramaarya.blog/wp-content/uploads/2022/09/chittorgarh_12-1.jpg')">
+          <div class="hero-overlay"></div>
+          <div class="container hero-content">
+            <span class="eyebrow"><i class="bi bi-car-front-fill"></i> Door-to-destination transfers</span>
+            <h1>Reliable Cabs for <span class="text-accent">Every</span> Itinerary</h1>
+            <p>Airport transfers, outstation trips and full-day rentals with verified drivers and clean, tracked vehicles.</p>
+            <div class="hero-btns">
+              <a href="#cabs" class="btn btn-primary-brand">See Cab Services <i class="bi bi-arrow-right"></i></a>
+              <a href="#booking" class="btn btn-outline-brand">Get a Free Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="hero-arrow"><i class="bi bi-chevron-left"></i></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="hero-arrow"><i class="bi bi-chevron-right"></i></span>
+      </button>
+    </div>
+
+    <!-- Quick search / booking strip -->
+    <div class="container">
+      <div class="search-strip" data-aos>
+        <form class="row g-3 align-items-end" id="quickSearchForm">
+          <div class="col-md-3">
+            <label class="form-label"><i class="bi bi-geo-alt"></i> Destination</label>
+            <select class="form-select">
+              <option selected>Where to?</option>
+              <option>Jaipur, Rajasthan</option>
+              <option>Manali, Himachal</option>
+              <option>Goa Beaches</option>
+              <option>Kerala Backwaters</option>
+              <option>Andaman Islands</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label"><i class="bi bi-calendar3"></i> Travel Date</label>
+            <input type="date" class="form-control">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label"><i class="bi bi-people"></i> Travellers</label>
+            <select class="form-select">
+              <option selected>2 Adults</option>
+              <option>1 Adult</option>
+              <option>Family (4-6)</option>
+              <option>Group (7+)</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-primary-brand w-100"><i class="bi bi-search"></i> Search Trips</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section-py">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <div class="about-media">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=900&q=80" alt="Travellers planning a trip with maps" class="img-fluid rounded-4 shadow-lg main-about-img">
+            <div class="about-badge">
+              <i class="bi bi-award"></i>
+              <div>
+                <strong>12+ Years</strong>
+                <span>Crafting Journeys</span>
+              </div>
+            </div>
+            <div class="dotted-ring" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+          <span class="section-eyebrow">About Wayfarer</span>
+          <h2 class="section-title">We Turn Travel Wishlists Into <span class="text-accent">Stamped Passports</span></h2>
+          <p class="section-text">
+            Wayfarer Tours &amp; Travels has been designing tailor-made holidays, corporate trips and cab services since 2013.
+            Our on-ground local experts, transparent pricing and 24/7 support mean you travel without the guesswork —
+            just the good part.
+          </p>
+          <ul class="about-list">
+            <li><i class="bi bi-check-circle-fill"></i> Handpicked stays &amp; verified local guides</li>
+            <li><i class="bi bi-check-circle-fill"></i> Transparent, no-surprise pricing</li>
+            <li><i class="bi bi-check-circle-fill"></i> 24/7 on-trip travel desk support</li>
+          </ul>
+
+          <div class="row counter-row g-4">
+            <div class="col-4">
+              <h3 class="counter" data-target="15000">0</h3>
+              <span>Happy Travellers</span>
+            </div>
+            <div class="col-4">
+              <h3 class="counter" data-target="42">0</h3>
+              <span>Destinations</span>
+            </div>
+            <div class="col-4">
+              <h3 class="counter" data-target="12">0</h3>
+              <span>Years of Trust</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section id="why" class="section-py bg-soft">
+    <div class="container">
+      <div class="text-center section-head" data-aos>
+        <span class="section-eyebrow justify-content-center">Why Wayfarer</span>
+        <h2 class="section-title">Built for Travellers Who Want It Done Right</h2>
+        <p class="section-text mx-auto">Four reasons our travellers come back to book their next journey with us.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3" data-aos data-aos-delay="0">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-piggy-bank"></i></div>
+            <h5>Best Price Guarantee</h5>
+            <p>Direct partnerships with hotels &amp; operators mean no middleman markup on your itinerary.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos data-aos-delay="100">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-headset"></i></div>
+            <h5>24/7 Travel Desk</h5>
+            <p>Real humans on call throughout your trip — for reschedules, emergencies or local tips.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos data-aos-delay="200">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-map"></i></div>
+            <h5>Locally Curated Routes</h5>
+            <p>Itineraries built by people who've actually walked the streets, not copy-pasted online.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3" data-aos data-aos-delay="300">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-shield-check"></i></div>
+            <h5>Safe &amp; Verified Partners</h5>
+            <p>Every driver, guide and stay is vetted so you can relax and enjoy the ride.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TOUR PACKAGES ===== -->
+  <section id="packages" class="section-py">
+    <div class="container">
+      <div class="text-center section-head" data-aos>
+        <span class="section-eyebrow justify-content-center">Tour Packages</span>
+        <h2 class="section-title">Your Next Boarding Pass Starts Here</h2>
+        <p class="section-text mx-auto">Fixed departures and custom itineraries — pick a route, we'll handle the rest.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6" data-aos data-aos-delay="0">
+          <div class="ticket-card">
+            <div class="ticket-img">
+              <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=700&q=80" alt="Manali Himachal mountains tour package">
+              <span class="ticket-tag">Bestseller</span>
+            </div>
+            <div class="ticket-perforation"></div>
+            <div class="ticket-body">
+              <div class="ticket-route"><span>JAI</span><i class="bi bi-airplane"></i><span>MAN</span></div>
+              <h5>Manali &amp; Solang Valley</h5>
+              <div class="ticket-meta">
+                <span><i class="bi bi-calendar3"></i> 5N/6D</span>
+                <span><i class="bi bi-people"></i> 2-6 pax</span>
+              </div>
+              <div class="ticket-footer">
+                <div><span class="from">Starting</span><strong>₹14,999</strong></div>
+                <a href="#booking" class="btn btn-sm btn-primary-brand">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos data-aos-delay="100">
+          <div class="ticket-card">
+            <div class="ticket-img">
+              <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=700&q=80" alt="Goa beach holiday package">
+              <span class="ticket-tag">Trending</span>
+            </div>
+            <div class="ticket-perforation"></div>
+            <div class="ticket-body">
+              <div class="ticket-route"><span>JAI</span><i class="bi bi-airplane"></i><span>GOI</span></div>
+              <h5>Goa Beach Escape</h5>
+              <div class="ticket-meta">
+                <span><i class="bi bi-calendar3"></i> 4N/5D</span>
+                <span><i class="bi bi-people"></i> 2-8 pax</span>
+              </div>
+              <div class="ticket-footer">
+                <div><span class="from">Starting</span><strong>₹12,499</strong></div>
+                <a href="#booking" class="btn btn-sm btn-primary-brand">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos data-aos-delay="200">
+          <div class="ticket-card">
+            <div class="ticket-img">
+              <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=700&q=80" alt="Kerala backwaters houseboat package">
+              <span class="ticket-tag">Honeymoon</span>
+            </div>
+            <div class="ticket-perforation"></div>
+            <div class="ticket-body">
+              <div class="ticket-route"><span>JAI</span><i class="bi bi-airplane"></i><span>COK</span></div>
+              <h5>Kerala Backwaters</h5>
+              <div class="ticket-meta">
+                <span><i class="bi bi-calendar3"></i> 6N/7D</span>
+                <span><i class="bi bi-people"></i> 2 pax</span>
+              </div>
+              <div class="ticket-footer">
+                <div><span class="from">Starting</span><strong>₹21,999</strong></div>
+                <a href="#booking" class="btn btn-sm btn-primary-brand">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos data-aos-delay="0">
+          <div class="ticket-card">
+            <div class="ticket-img">
+              <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=700&q=80" alt="Rajasthan royal heritage tour">
+              <span class="ticket-tag">Heritage</span>
+            </div>
+            <div class="ticket-perforation"></div>
+            <div class="ticket-body">
+              <div class="ticket-route"><span>DEL</span><i class="bi bi-airplane"></i><span>JAI</span></div>
+              <h5>Royal Rajasthan Trail</h5>
+              <div class="ticket-meta">
+                <span><i class="bi bi-calendar3"></i> 5N/6D</span>
+                <span><i class="bi bi-people"></i> 2-10 pax</span>
+              </div>
+              <div class="ticket-footer">
+                <div><span class="from">Starting</span><strong>₹16,499</strong></div>
+                <a href="#booking" class="btn btn-sm btn-primary-brand">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos data-aos-delay="100">
+          <div class="ticket-card">
+            <div class="ticket-img">
+              <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=700&q=80" alt="Andaman islands sea tour package">
+              <span class="ticket-tag">Island Life</span>
+            </div>
+            <div class="ticket-perforation"></div>
+            <div class="ticket-body">
+              <div class="ticket-route"><span>JAI</span><i class="bi bi-airplane"></i><span>IXZ</span></div>
+              <h5>Andaman Island Hop</h5>
+              <div class="ticket-meta">
+                <span><i class="bi bi-calendar3"></i> 5N/6D</span>
+                <span><i class="bi bi-people"></i> 2-6 pax</span>
+              </div>
+              <div class="ticket-footer">
+                <div><span class="from">Starting</span><strong>₹28,999</strong></div>
+                <a href="#booking" class="btn btn-sm btn-primary-brand">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos data-aos-delay="200">
+          <div class="ticket-card">
+            <div class="ticket-img">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=700&q=80" aria-hidden="true" alt="Himalayan valley trekking tour">
+              <span class="ticket-tag">Adventure</span>
+            </div>
+            <div class="ticket-perforation"></div>
+            <div class="ticket-body">
+              <div class="ticket-route"><span>DEL</span><i class="bi bi-airplane"></i><span>LEH</span></div>
+              <h5>Leh-Ladakh Expedition</h5>
+              <div class="ticket-meta">
+                <span><i class="bi bi-calendar3"></i> 7N/8D</span>
+                <span><i class="bi bi-people"></i> 4-12 pax</span>
+              </div>
+              <div class="ticket-footer">
+                <div><span class="from">Starting</span><strong>₹32,499</strong></div>
+                <a href="#booking" class="btn btn-sm btn-primary-brand">Book Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5" data-aos>
+        <a href="#contact" class="btn btn-outline-brand">View All Packages <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAB SERVICES ===== -->
+  <section id="cabs" class="section-py bg-soft">
+    <div class="container">
+      <div class="text-center section-head" data-aos>
+        <span class="section-eyebrow justify-content-center">Cab Services</span>
+        <h2 class="section-title">Wherever the Road Leads, We're Driving</h2>
+        <p class="section-text mx-auto">Verified drivers, clean vehicles and upfront fares — for every kind of ride.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="0">
+          <div class="cab-card">
+            <div class="cab-icon"><i class="bi bi-airplane-fill"></i></div>
+            <h5>Airport Transfers</h5>
+            <p>On-time pickups &amp; drops with live flight tracking, so delays never cost you a wait.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="100">
+          <div class="cab-card">
+            <div class="cab-icon"><i class="bi bi-signpost-2-fill"></i></div>
+            <h5>Outstation Trips</h5>
+            <p>One-way or round trips across states with experienced highway drivers.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="200">
+          <div class="cab-card">
+            <div class="cab-icon"><i class="bi bi-clock-history"></i></div>
+            <h5>Full-Day Rentals</h5>
+            <p>City touring, sightseeing or business errands — the cab waits while you work.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="300">
+          <div class="cab-card">
+            <div class="cab-icon"><i class="bi bi-people-fill"></i></div>
+            <h5>Group &amp; Tempo Travellers</h5>
+            <p>9 to 26-seater vehicles for family functions, group tours and corporate outings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POPULAR DESTINATIONS ===== -->
+  <section id="destinations" class="section-py">
+    <div class="container">
+      <div class="text-center section-head" data-aos>
+        <span class="section-eyebrow justify-content-center">Popular Destinations</span>
+        <h2 class="section-title">Passport-Worthy Places to Stamp Next</h2>
+        <p class="section-text mx-auto">A shortlist of the routes our travellers ask for most.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="0">
+          <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=600&q=80" alt="Manali, Himachal Pradesh mountains">
+            <div class="dest-overlay">
+              <h5>Manali</h5>
+              <span><i class="bi bi-geo-alt-fill"></i> Himachal Pradesh</span>
+            </div>
+            <div class="dest-stamp"><i class="bi bi-airplane"></i></div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="100">
+          <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=600&q=80" alt="Goa beaches, India">
+            <div class="dest-overlay">
+              <h5>Goa</h5>
+              <span><i class="bi bi-geo-alt-fill"></i> West Coast</span>
+            </div>
+            <div class="dest-stamp"><i class="bi bi-airplane"></i></div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="200">
+          <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80" alt="Kerala backwaters, India">
+            <div class="dest-overlay">
+              <h5>Kerala</h5>
+              <span><i class="bi bi-geo-alt-fill"></i> Backwaters</span>
+            </div>
+            <div class="dest-stamp"><i class="bi bi-airplane"></i></div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="300">
+          <div class="dest-card">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=600&q=80" alt="Jaipur, Rajasthan heritage forts">
+            <div class="dest-overlay">
+              <h5>Jaipur</h5>
+              <span><i class="bi bi-geo-alt-fill"></i> Rajasthan</span>
+            </div>
+            <div class="dest-stamp"><i class="bi bi-airplane"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BOOKING PROCESS ===== -->
+  <section id="booking" class="section-py bg-navy">
+    <div class="container">
+      <div class="text-center section-head" data-aos>
+        <span class="section-eyebrow justify-content-center light">How It Works</span>
+        <h2 class="section-title light">From Idea to Itinerary in Four Steps</h2>
+        <p class="section-text mx-auto light">A real, timed sequence — this is exactly what happens after you reach out.</p>
+      </div>
+      <div class="row g-4 booking-steps">
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="0">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <i class="bi bi-chat-dots"></i>
+            <h5>Tell Us Your Plan</h5>
+            <p>Share destination, dates and budget through call, form or WhatsApp.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="100">
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <i class="bi bi-map"></i>
+            <h5>Get a Custom Itinerary</h5>
+            <p>Our planners send a day-by-day plan with transparent pricing within 24 hours.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="200">
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <i class="bi bi-credit-card"></i>
+            <h5>Confirm &amp; Pay Securely</h5>
+            <p>Lock your trip with a small advance; balance due closer to travel date.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6" data-aos data-aos-delay="300">
+          <div class="step-card">
+            <span class="step-num">04</span>
+            <i class="bi bi-suitcase-lg"></i>
+            <h5>Pack &amp; Travel</h5>
+            <p>We handle bookings and logistics — you just show up and enjoy the trip.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <!-- <section id="testimonials" class="section-py">
+    <div class="container">
+      <div class="text-center section-head" data-aos>
+        <span class="section-eyebrow justify-content-center">Testimonials</span>
+        <h2 class="section-title">Stories From the Road</h2>
+        <p class="section-text mx-auto">What our travellers say once they're back home.</p>
+      </div>
+
+      <div id="testiCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="testi-card text-center" data-aos>
+                  <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <p>Our Manali trip was planned down to the last detail. The driver was punctual and the hotel was exactly as promised — Wayfarer made a 6-day trip feel completely stress-free.</p>
+                  <div class="testi-user">
+                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=100&q=80" alt="Traveller Ritika Sharma">
+                    <div>
+                      <strong>Ritika Sharma</strong>
+                      <span>Manali Getaway</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="testi-card text-center" data-aos>
+                  <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <p>Booked an outstation cab for a family wedding trip — clean car, courteous driver and fair pricing with zero hidden charges. Will definitely use them again.</p>
+                  <div class="testi-user">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" alt="Traveller Aman Verma">
+                    <div>
+                      <strong>Aman Verma</strong>
+                      <span>Outstation Cab Service</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="testi-card text-center" data-aos>
+                  <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                  <p>The Kerala houseboat package exceeded expectations. Every detail, from pickup to the final drop, was handled smoothly. Highly recommend for honeymoon trips.</p>
+                  <div class="testi-user">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Traveller Neha and Karan">
+                    <div>
+                      <strong>Neha &amp; Karan</strong>
+                      <span>Kerala Honeymoon</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-dots">
+          <button data-bs-target="#testiCarousel" data-bs-slide-to="0" class="active" aria-label="Testimonial 1"></button>
+          <button data-bs-target="#testiCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
+          <button data-bs-target="#testiCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ===== GALLERY ===== -->
+  <section id="gallery" class="section-py bg-soft">
+    <div class="container">
+      <div class="text-center section-head" data-aos>
+        <span class="section-eyebrow justify-content-center">Gallery</span>
+        <h2 class="section-title">Snapshots From the Journey</h2>
+        <p class="section-text mx-auto">A few frames from trips we've planned. Click any photo to view larger.</p>
+      </div>
+      <div class="row g-3 gallery-grid">
+        <div class="col-6 col-lg-4" data-aos data-aos-delay="0">
+          <div class="gallery-item" data-img="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=500&q=80" alt="Snow capped mountains Manali">
+            <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4" data-aos data-aos-delay="100">
+          <div class="gallery-item" data-img="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=500&q=80" alt="Goa beach sunset">
+            <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4" data-aos data-aos-delay="200">
+          <div class="gallery-item" data-img="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=500&q=80" alt="Kerala houseboat backwaters">
+            <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4" data-aos data-aos-delay="0">
+          <div class="gallery-item" data-img="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=500&q=80" alt="Jaipur Rajasthan fort">
+            <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4" data-aos data-aos-delay="100">
+          <div class="gallery-item" data-img="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=80" alt="Himalayan valley trek">
+            <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-4" data-aos data-aos-delay="200">
+          <div class="gallery-item" data-img="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1200&q=80">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=500&q=80" alt="Andaman islands sea view">
+            <div class="gallery-zoom"><i class="bi bi-zoom-in"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section" data-aos>
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-route" aria-hidden="true">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span class="cta-dash"></span>
+          <i class="bi bi-airplane-fill"></i>
+          <span class="cta-dash"></span>
+          <i class="bi bi-geo-alt-fill"></i>
+        </div>
+        <h2>Ready to Write Your Next Travel Story?</h2>
+        <p>Tell us your dates and budget — we'll send a custom itinerary within 24 hours, no obligation.</p>
+        <a href="#contact" class="btn btn-cta-white">Start Planning <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section-py">
+    <div class="container">
+      <div class="text-center section-head" data-aos>
+        <span class="section-eyebrow justify-content-center">Contact Us</span>
+        <h2 class="section-title">Let's Plan Your Trip</h2>
+        <p class="section-text mx-auto">Reach out and our travel desk will get back within a few hours.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-5" data-aos="fade-right">
+          <div class="contact-info-card">
+            <div class="contact-info-item">
+              <i class="bi bi-geo-alt-fill"></i>
+              <div><strong>Office</strong><span>C-Scheme, Jaipur, Rajasthan, India</span></div>
+            </div>
+            <div class="contact-info-item">
+              <i class="bi bi-telephone-fill"></i>
+              <div><strong>Call Us</strong><span>+91 12345 67890</span></div>
+            </div>
+            <div class="contact-info-item">
+              <i class="bi bi-envelope-fill"></i>
+              <div><strong>Email</strong><span>fly@wayfarertours.com</span></div>
+            </div>
+            <div class="contact-info-item">
+              <i class="bi bi-clock-fill"></i>
+              <div><strong>Travel Desk Hours</strong><span>Mon-Sun, 8:00 AM - 10:00 PM</span></div>
+            </div>
+            <div class="contact-map">
+              <iframe src="https://www.google.com/maps?q=Jaipur,Rajasthan,India&output=embed" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Wayfarer Tours office location map"></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7" data-aos="fade-left">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" name="name" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" name="phone" required pattern="[0-9+\-\s]{7,15}">
+                <div class="invalid-feedback">Please enter a valid phone number.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" name="email" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Preferred Destination</label>
+                <input type="text" class="form-control" name="destination" placeholder="e.g. Manali, Goa">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" name="message" rows="4" required placeholder="Tell us your travel dates, group size and budget..."></textarea>
+                <div class="invalid-feedback">Please tell us a little about your trip.</div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary-brand w-100 w-md-auto">Send Enquiry <i class="bi bi-send"></i></button>
+              </div>
+            </div>
+            <div class="form-success alert alert-success mt-3 d-none" id="formSuccess">
+              <i class="bi bi-check-circle-fill"></i> Thanks! Your enquiry has been received — our team will reach out shortly.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <a href="#top" class="navbar-brand mb-3 d-inline-flex">
+              <svg width="38" height="38" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="50" cy="50" r="47" fill="#FF8C00" />
+                <path d="M67 33 54 54 33 67 46 46Z" fill="#0B4F9C" />
+              </svg>
+              <span class="brand-text">Wayfarer<span class="brand-accent">.</span></span>
+            </a>
+            <p>Curated tours, cab services and holiday packages — planned by people who love the road as much as you do.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6">
+            <h6>Explore</h6>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#packages">Tour Packages</a></li>
+              <li><a href="#cabs">Cab Services</a></li>
+              <li><a href="#destinations">Destinations</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-4 col-6">
+            <h6>Company</h6>
+            <ul>
+
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#booking">How It Works</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <h6>Stay in the Loop</h6>
+            <p>Subscribe for seasonal deals and new destination drops.</p>
+            <form class="newsletter-form" id="newsletterForm">
+              <input type="email" placeholder="Your email address" required>
+              <button type="submit"><i class="bi bi-send-fill"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <span>&copy; <span id="year"></span> Wayfarer Tours &amp; Travels. All rights reserved.</span>
+        <span>Made with <i class="bi bi-heart-fill text-accent"></i> for travellers everywhere.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Lightbox modal for gallery -->
+  <div class="lightbox-overlay" id="lightboxOverlay">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close"><i class="bi bi-x-lg"></i></button>
+    <img id="lightboxImg" src="" alt="Gallery preview">
+  </div>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
