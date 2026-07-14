@@ -9,6 +9,52 @@
     --navy-60: rgba(10, 61, 124, .55);
 }
 
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Prevent Horizontal Scroll */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Images & Videos */
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Containers */
+.container,
+.container-fluid {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Long Text */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -82,8 +128,8 @@ a {
 
 /* ============ NAVBAR ============ */
 .main-navbar {
-    position: sticky;
-    top: 0;
+    position: sticky !important;
+    top: 0 !important;
     z-index: 1030;
     background: rgba(255, 255, 255, .75);
     backdrop-filter: blur(14px) saturate(160%);
@@ -408,7 +454,7 @@ a {
 
 /* ============ SECTION SHARED ============ */
 .section {
-    padding: 5.5rem 0;
+    padding: 1.5rem 0;
 }
 
 .section-tight {
@@ -1056,6 +1102,302 @@ a {
     .lightbox-nav.next {
         right: 6px;
     }
+}
+
+/* ============ CONTACT PAGE EXTRAS ============ */
+.office-hours-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .7rem 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, .2);
+    font-size: .9rem;
+}
+
+.office-hours-row:last-child {
+    border-bottom: none;
+}
+
+.office-hours-row .day {
+    color: rgba(255, 255, 255, .9);
+    font-weight: 600;
+}
+
+.office-hours-row .time {
+    color: rgba(255, 255, 255, .75);
+}
+
+.map-wrap {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 14px 34px rgba(10, 61, 124, .14);
+    line-height: 0;
+}
+
+.map-wrap iframe {
+    width: 100%;
+    height: 380px;
+    border: 0;
+}
+
+.accordion-custom .accordion-item {
+    border: none;
+    border-radius: 14px !important;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: 0 8px 22px rgba(10, 61, 124, .08);
+}
+
+.accordion-custom .accordion-button {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: .95rem;
+    padding: 1.1rem 1.4rem;
+    background: #fff;
+}
+
+.accordion-custom .accordion-button:not(.collapsed) {
+    background: linear-gradient(135deg, var(--navy), var(--royal));
+    color: #fff;
+    box-shadow: none;
+}
+
+.accordion-custom .accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(1);
+}
+
+.accordion-custom .accordion-button:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.accordion-custom .accordion-body {
+    font-size: .88rem;
+    color: #5b6b7c;
+    padding: 1.2rem 1.4rem;
+    background: #fff;
+}
+
+.contact-quick-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 8px 24px rgba(10, 61, 124, .08);
+    transition: all .3s ease;
+}
+
+.contact-quick-card:hover {
+    transform: translateY(-6px);
+}
+
+.contact-quick-card .ic {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--navy), var(--royal));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 1rem;
+}
+
+.contact-quick-card h6 {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: .3rem;
+}
+
+.contact-quick-card p,
+.contact-quick-card a {
+    font-size: .85rem;
+    color: #5b6b7c;
+    margin: 0;
+}
+
+.contact-quick-card a {
+    font-weight: 600;
+    color: var(--royal);
+}
+
+/* ============ ONE WAY TAXI ROUTES (routes page) ============ */
+.route-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 767.98px) {
+    .route-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.route-group {
+    margin-top: 20px;
+}
+
+.route-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.15rem 1.3rem;
+    box-shadow: 0 8px 22px rgba(13, 72, 143, 0.548);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: all .25s ease;
+    border: 1px solid transparent;
+}
+
+.route-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(10, 61, 124, .16);
+    border-color: rgba(245, 124, 0, .25);
+}
+
+.route-card .cities {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: .96rem;
+    flex-wrap: wrap;
+}
+
+.route-card .cities i.route-arrow {
+    color: var(--orange);
+    font-size: .8rem;
+}
+
+.route-card .tag {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .74rem;
+    color: #94a3b8;
+    margin-top: .35rem;
+}
+
+.route-card .tag i {
+    color: var(--sky);
+}
+
+.btn-route {
+    background: var(--light-gray);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: .78rem;
+    padding: .55rem 1rem;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all .25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.btn-route:hover {
+    background: #25D366;
+    color: #fff;
+}
+
+.route-group-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 1.15rem;
+    margin: 2.6rem 0 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.route-group-title:first-of-type {
+    margin-top: 0;
+}
+
+.route-group-title i {
+    color: var(--orange);
+}
+
+.taxi-feature {
+    background: #fff;
+    border-radius: 18px;
+    padding: 1.8rem 1.4rem;
+    height: 100%;
+    box-shadow: 0 8px 24px rgba(10, 61, 124, .08);
+    text-align: center;
+    transition: all .3s ease;
+}
+
+.taxi-feature:hover {
+    transform: translateY(-6px);
+}
+
+.taxi-feature .ic {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--navy), var(--royal));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 0 auto 1rem;
+}
+
+.taxi-feature h6 {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: .3rem;
+    font-size: .95rem;
+}
+
+.taxi-feature p {
+    font-size: .82rem;
+    color: #5b6b7c;
+    margin: 0;
+}
+
+.fleet-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(10, 61, 124, .08);
+    transition: all .3s ease;
+}
+
+.fleet-card:hover {
+    transform: translateY(-6px);
+}
+
+.fleet-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.fleet-card .fleet-body {
+    padding: 1.1rem 1.2rem 1.3rem;
+}
+
+.fleet-card h6 {
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: .2rem;
+}
+
+.fleet-card p {
+    font-size: .82rem;
+    color: #5b6b7c;
+    margin: 0;
 }
 
 /* ============ WHY CHOOSE US ============ */
