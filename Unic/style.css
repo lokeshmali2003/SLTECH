@@ -143,6 +143,10 @@ textarea:focus-visible {
     pointer-events: none;
 }
 
+.taxi-feature {
+    box-shadow: 2px 2px 2px black;
+}
+
 .route-path {
     fill: none;
     stroke: var(--orange-500);
@@ -1780,6 +1784,7 @@ textarea:focus-visible {
     opacity: 1;
     transform: translate(0, 0);
 }
+
 
 /* =========================================================
    RESPONSIVE
