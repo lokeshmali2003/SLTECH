@@ -16,6 +16,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+
+  <!-- Welcome Booking Modal styles -->
+  <style>
+    .welcome-modal-content {
+      border: none;
+      border-radius: 18px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+    }
+
+    .welcome-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      z-index: 5;
+    }
+
+    .welcome-modal-logo {
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .welcome-modal-header h4 {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .welcome-modal-header p {
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
@@ -453,6 +485,39 @@
     </div>
   </footer>
 
+  <!-- ============ WELCOME BOOKING MODAL ============ -->
+  <div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content welcome-modal-content">
+        <button type="button" class="btn-close welcome-modal-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        <div class="welcome-modal-header text-center">
+          <img src="images/sidelogo-removebg-preview.png" alt="Unic Cab Service" class="welcome-modal-logo">
+          <h4 class="mt-2 mb-1">Welcome to Unic Cab Service!</h4>
+          <p class="mb-0">Apni trip ki details bhariye, hum aapko turant call karenge.</p>
+        </div>
+
+        <div class="modal-body">
+          <form id="welcomeBookingForm" onsubmit="return submitWelcomeForm(event)">
+            <div class="mb-3">
+              <input type="text" class="form-control form-control-custom" id="wmName" placeholder="Full Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="tel" class="form-control form-control-custom" id="wmMobile" placeholder="Mobile Number" pattern="[0-9]{10}" maxlength="10" required>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control form-control-custom" id="wmFrom" placeholder="From (Pickup City)" required>
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control form-control-custom" id="wmTo" placeholder="To (Destination)" required>
+            </div>
+            <button type="submit" class="btn-submit w-100">Book Now <i class="fa-solid fa-arrow-right ms-1"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ============ FLOATING BUTTONS ============ -->
   <a href="https://wa.me/+916375463236" target="_blank" class="whatsapp-float">
     <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
@@ -519,6 +584,34 @@
 
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ===== Welcome Booking Modal =====
+    window.addEventListener('load', () => {
+      const welcomeModalEl = document.getElementById('welcomeModal');
+      if (welcomeModalEl) {
+        const welcomeModal = new bootstrap.Modal(welcomeModalEl);
+        setTimeout(() => welcomeModal.show(), 800); // page load ke thodi der baad open hoga
+      }
+    });
+
+    function submitWelcomeForm(e) {
+      e.preventDefault();
+      const name = document.getElementById('wmName').value.trim();
+      const mobile = document.getElementById('wmMobile').value.trim();
+      const from = document.getElementById('wmFrom').value.trim();
+      const to = document.getElementById('wmTo').value.trim();
+
+      const message = `Hi, main ${name} hu. Mera mobile number ${mobile} hai. Mujhe cab chahiye ${from} se ${to} ke liye. Please booking confirm karein.`;
+      const waUrl = `https://wa.me/916375463236?text=${encodeURIComponent(message)}`;
+
+      window.open(waUrl, '_blank');
+
+      const modalEl = document.getElementById('welcomeModal');
+      const modalInstance = bootstrap.Modal.getInstance(modalEl);
+      if (modalInstance) modalInstance.hide();
+
+      return false;
+    }
   </script>
 </body>
 

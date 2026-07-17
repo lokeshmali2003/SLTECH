@@ -15,6 +15,42 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <!-- Shared stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Destination search styles -->
+  <style>
+    .route-search-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+    }
+
+    .route-search-ic {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9aa7b4;
+    }
+
+    .route-search-input {
+      padding: 12px 16px 12px 42px;
+      border-radius: 30px;
+      border: 1px solid #e1e6eb;
+      font-size: .95rem;
+      box-shadow: none;
+      width: 100%;
+    }
+
+    .route-search-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255, 140, 0, .15);
+      outline: none;
+    }
+
+    #noRouteMsg {
+      color: #5b6b7c;
+    }
+  </style>
 </head>
 
 <body>
@@ -228,6 +264,14 @@
         <span class="eyebrow-tag"><i class="fa-solid fa-map-location-dot"></i> POPULAR ROUTES</span>
         <h2 class="section-title">One way taxi <span>routes we cover</span></h2>
         <p class="section-sub mx-auto">Tap "Book on WhatsApp" against any route to check the fare and confirm your cab.</p>
+      </div>
+
+      <!-- Destination Search -->
+      <div class="d-flex justify-content-center mb-4">
+        <div class="route-search-wrap">
+          <i class="fa-solid fa-magnifying-glass route-search-ic"></i>
+          <input type="text" id="routeSearch" class="form-control route-search-input" placeholder="Search destination... e.g. Jaipur se Udaipur tak" autocomplete="off">
+        </div>
       </div>
 
       <!-- Filter Tabs -->
@@ -668,7 +712,7 @@
 
       </div>
 
-      <p class="text-center mt-5" style="color:#5b6b7c; font-size:.9rem;">
+      <p class="text-center mt-5" id="defaultNoRouteHint" style="color:#5b6b7c; font-size:.9rem;">
         Don't see your route listed? <a href="index.html#contact" style="color:var(--orange); font-weight:700;">Contact us</a> — we cover most cities across Rajasthan, Delhi and Gujarat.
       </p>
     </div>
@@ -765,24 +809,87 @@
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Route group filter
+    // ---- Elements ----
     const filterBtns = document.querySelectorAll('.btn-filter-pill');
     const routeGroups = document.querySelectorAll('.route-group');
+    const searchInput = document.getElementById('routeSearch');
+    const routeGroupsWrap = document.getElementById('routeGroups');
+    const defaultHint = document.getElementById('defaultNoRouteHint');
 
+    // ---- Pill filter (unchanged behavior, but also clears search) ----
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
+        searchInput.value = '';
+        removeNoResultsMsg();
+        defaultHint.style.display = '';
+
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
 
         routeGroups.forEach(group => {
-          if (filter === 'all' || group.dataset.category === filter) {
-            group.style.display = '';
-          } else {
-            group.style.display = 'none';
-          }
+          group.style.display = (filter === 'all' || group.dataset.category === filter) ? '' : 'none';
+          group.querySelectorAll('.route-card').forEach(c => c.style.display = '');
         });
       });
+    });
+
+    // ---- Destination search: "Jaipur se Udaipur tak" ----
+    function removeNoResultsMsg() {
+      const msg = document.getElementById('noRouteMsg');
+      if (msg) msg.remove();
+    }
+
+    searchInput.addEventListener('input', () => {
+      const raw = searchInput.value.toLowerCase().trim();
+
+      // strip connector words: se / tak / to / from / ke / liye
+      const words = raw
+        .replace(/\bse\b|\btak\b|\bto\b|\bfrom\b|\bke\b|\bliye\b/g, ' ')
+        .split(/\s+/)
+        .filter(Boolean);
+
+      removeNoResultsMsg();
+
+      if (words.length === 0) {
+        // no query -> restore whatever pill filter is currently active
+        defaultHint.style.display = '';
+        const activeBtn = document.querySelector('.btn-filter-pill.active') || document.querySelector('.btn-filter-pill[data-filter="all"]');
+        const activeFilter = activeBtn.dataset.filter;
+        routeGroups.forEach(group => {
+          group.style.display = (activeFilter === 'all' || group.dataset.category === activeFilter) ? '' : 'none';
+          group.querySelectorAll('.route-card').forEach(c => c.style.display = '');
+        });
+        return;
+      }
+
+      // while searching, deactivate pills and filter individual cards across all groups
+      filterBtns.forEach(b => b.classList.remove('active'));
+      defaultHint.style.display = 'none';
+
+      let totalMatches = 0;
+      routeGroups.forEach(group => {
+        let groupHasMatch = false;
+        group.querySelectorAll('.route-card').forEach(card => {
+          const citiesText = card.querySelector('.cities').textContent.toLowerCase();
+          const matches = words.every(w => citiesText.includes(w));
+          card.style.display = matches ? '' : 'none';
+          if (matches) {
+            groupHasMatch = true;
+            totalMatches++;
+          }
+        });
+        group.style.display = groupHasMatch ? '' : 'none';
+      });
+
+      if (totalMatches === 0) {
+        const msg = document.createElement('p');
+        msg.id = 'noRouteMsg';
+        msg.className = 'text-center mt-4';
+        msg.style.color = '#5b6b7c';
+        msg.innerHTML = 'No matching route found. <a href="index.html#contact" style="color:var(--orange); font-weight:700;">Contact us on WhatsApp</a> — we may still cover it.';
+        routeGroupsWrap.after(msg);
+      }
     });
   </script>
 </body>
